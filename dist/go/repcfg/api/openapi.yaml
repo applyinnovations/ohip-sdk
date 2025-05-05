@@ -1,0 +1,1822 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs for adding, updating, and deleting stationery reports in OPERA\
+    \ Cloud.<br /><br /> Compatible with OPERA Cloud release 24.4.<br /><br /><p>\
+    \ This document and all content within is available under the Universal Permissive\
+    \ License v 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2024\
+    \ Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Report Master Data Management API
+  version: "24.4"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /rep/config/v1
+tags:
+- description: "The Report Service provides information about available report modules\
+    \ which may be generated, along with their parameters."
+  name: Report
+paths:
+  /genericReports:
+    delete:
+      description: "Use this API to delete generic reports based on hotelId, Id, contextId.\
+        \ <p><strong>OperationId:</strong>deleteGenericReports</p>"
+      operationId: deleteGenericReports
+      parameters:
+      - description: "Used for codes in the OPERA Code tables. Possible values of\
+          \ this pattern are 1, 101, 101.EQP, or 101.EQP.X."
+        in: query
+        name: hotelId
+        schema:
+          maxLength: 2000
+          minLength: 0
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        explode: true
+        in: query
+        name: id
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        explode: true
+        in: query
+        name: idContext
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A reference to the type of object defined by the UniqueID element.
+          Refer to OpenTravel Code List Unique ID Type (UIT).
+        explode: true
+        in: query
+        name: type
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Delete generic reports.
+      tags:
+      - Report
+    post:
+      description: Use this API to create generic reports. <p><strong>OperationId:</strong>postGenericReports</p>
+      operationId: postGenericReports
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/genericReports'
+        description: This request provides End of Day reports to be created.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create generic reports.
+      tags:
+      - Report
+      x-codegen-request-body-name: genericReports
+    put:
+      description: Use this API to update generic reports. <p><strong>OperationId:</strong>changeGenericReports</p>
+      operationId: changeGenericReports
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/genericReports'
+        description: This request provides generic reports to be updated.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/genericReports'
+          description: This response provides the result of updating reports.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Update generic reports.
+      tags:
+      - Report
+      x-codegen-request-body-name: genericReports
+  /reportParameters:
+    get:
+      description: "Use this API to return report parameters based on search criteria\
+        \ such as id, idContext, type. <p><strong>OperationId:</strong>getReportParameters</p>"
+      operationId: getReportParameters
+      parameters:
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: id
+        schema:
+          maxLength: 80
+          minLength: 0
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: idContext
+        schema:
+          maxLength: 80
+          minLength: 0
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+          Refer to OpenTravel Code List Unique ID Type (UIT).
+        in: query
+        name: type
+        schema:
+          maxLength: 80
+          minLength: 0
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/reportParameters'
+          description: The Fetch Report Parameters result object contains a collection
+            of report parameters which allow/require user input prior to running the
+            report.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: ReportParameters not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Return report parameters.
+      tags:
+      - Report
+  /reportTextConfiguration/copy:
+    put:
+      description: ' <p><strong>OperationId:</strong>copyReportTextConfiguration</p>'
+      operationId: copyReportTextConfiguration
+      parameters:
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/reportTextConfigurationsCopy'
+        description: Request object to copy the Report Text Configuration from Source
+          Property to Destination Properties.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/status'
+          description: Response Body.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Operation to copy report text configuration.
+      tags:
+      - Report
+      x-codegen-request-body-name: reportTextConfigurationsCopy
+  /reports:
+    get:
+      description: "Use this API to return reports based on search criteria such as\
+        \ excludeGroup, includeInternalReports, includeRnAReports, includeUnpublished,\
+        \ includeWatermarkDetails, limit, multiPropertyOnly, protectedReportParam,\
+        \ scheduled, name, group, hotel, id, idContext, type. <p><strong>OperationId:</strong>getReports</p>"
+      operationId: getReports
+      parameters:
+      - description: Indicates whether a report group should be excluded
+        in: query
+        name: excludeGroup
+        schema:
+          maxLength: 2000
+          minLength: 0
+          type: string
+      - description: Indicates whether sample internal reports are to be included
+        in: query
+        name: includeInternalReports
+        schema:
+          type: boolean
+      - description: Indicates whether RnA reports are to be included
+        in: query
+        name: includeRnAReports
+        schema:
+          type: boolean
+      - description: Indicates whether protected reports should be included
+        in: query
+        name: includeUnpublished
+        schema:
+          type: boolean
+      - description: Indicates whether the watermark details is to be populated. This
+          is needed only for the configuration and not for the actual execution.
+        in: query
+        name: includeWatermarkDetails
+        schema:
+          type: boolean
+      - description: Indicates maximum number of records a Web Service should return.
+        in: query
+        name: limit
+        schema:
+          type: integer
+      - description: Indicates whether the result set should only include multi-property
+          reports.
+        in: query
+        name: multiPropertyOnly
+        schema:
+          type: boolean
+      - description: Indicates whether protected reports should be included
+        in: query
+        name: protectedReportParam
+        schema:
+          type: boolean
+      - description: Indicates that only reports that can be scheduled are included
+        in: query
+        name: scheduled
+        schema:
+          type: boolean
+      - description: Partial report name or description to search.
+        in: query
+        name: name
+        schema:
+          maxLength: 2000
+          minLength: 0
+          type: string
+      - description: Report group to limit search.
+        in: query
+        name: group
+        schema:
+          maxLength: 2000
+          minLength: 0
+          type: string
+      - description: Hotel code to search reports for.
+        in: query
+        name: hotel
+        schema:
+          maxLength: 2000
+          minLength: 0
+          type: string
+      - description: A unique identifying value assigned by the creating system. The
+          ID attribute may be used to reference a primary-key value within a database
+          or in a particular implementation.
+        in: query
+        name: id
+        schema:
+          maxLength: 80
+          minLength: 0
+          type: string
+      - description: "Used to identify the source of the identifier (e.g., IATA, ABTA)."
+        in: query
+        name: idContext
+        schema:
+          maxLength: 80
+          minLength: 0
+          type: string
+      - description: A reference to the type of object defined by the UniqueID element.
+          Refer to OpenTravel Code List Unique ID Type (UIT).
+        in: query
+        name: type
+        schema:
+          maxLength: 80
+          minLength: 0
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: External system code.
+        in: header
+        name: x-externalsystem
+        schema:
+          maxLength: 80
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/reports'
+          description: This type contains a collection of report modules which match
+            the requested criteria. The object also may include a standard SUCCESS
+            element or a WARNINGS or ERRORS collection.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Reports not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Return reports.
+      tags:
+      - Report
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner's Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    x-externalsystem:
+      description: External system code.
+      example: EXTERNALSYSTEMCODE
+      in: header
+      name: x-externalsystem
+      schema:
+        maxLength: 80
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+    x-hubid:
+      description: x-hubid is a logical grouping of multiple properties that allows
+        api consumers to manage data from a group of properties. This x-hubid is a
+        valid list of hub codes configured in OPERA to which the user has access.
+        Rest APIs without hotelId in the operation path can support hub level integration
+        using x-hubid
+      in: header
+      name: x-hubid
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      required:
+      - title
+      - type
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      required:
+      - title
+      - type
+      title: Error Instance Details
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      required:
+      - href
+      - method
+      - operationId
+      - rel
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    status:
+      description: Response Body.
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    copyReportsType:
+      description: Copy report configuration code from one property to the other.
+      properties:
+        codes:
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        targetHotelCodes:
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        sourceHotelCode:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    codeListType:
+      items:
+        maxLength: 20
+        minLength: 0
+        type: string
+      maxItems: 4000
+      type: array
+    reportTextConfigurationsCopy:
+      description: Request object to copy the Report Text Configurations from Source
+        Property to Destination Properties.
+      properties:
+        copyReports:
+          $ref: '#/components/schemas/copyReportsType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    uniqueID_Type:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    reportsType:
+      description: Contains a collection of reports matching the requested criteria.
+      properties:
+        reports:
+          description: List of reports matching search criteria.
+          items:
+            $ref: '#/components/schemas/reportType'
+          maxItems: 4000
+          type: array
+        hasMore:
+          description: Indicates whether all the records are included in the response
+            or not. Absence of the attribute values should be consider as all rows
+            fetched in the response.
+          type: boolean
+        totalResults:
+          description: Total number of rows queried
+          type: integer
+        count:
+          description: Total number of rows returned
+          type: integer
+      type: object
+    reportType:
+      description: Contains details about the report application module from the DB.
+      properties:
+        moduleId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        reportName:
+          description: Report name.
+          maxLength: 80
+          minLength: 0
+          type: string
+        moduleType:
+          $ref: '#/components/schemas/reportModuleTypeType'
+        reportDescription:
+          $ref: '#/components/schemas/translationTextType1000'
+        reportGroupId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        reportGroup:
+          description: Report group.
+          maxLength: 1000
+          minLength: 0
+          type: string
+        attachedReports:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        reportGroupDescription:
+          maxLength: 1000
+          minLength: 0
+          type: string
+        translatableReportGroupDescription:
+          $ref: '#/components/schemas/translationTextType1000'
+        hotel:
+          description: The hotel code that the report is associated with.
+          maxLength: 20
+          minLength: 0
+          type: string
+        formToRun:
+          description: Form which is run to collect parameter information to generate
+            the report.
+          maxLength: 80
+          minLength: 0
+          type: string
+        languageCode:
+          description: Report language code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        hasParameters:
+          description: Flag which indicates whether the report requires parameters.
+          type: boolean
+        sample:
+          description: Flag which indicates whether the report is a sample provided
+            in the application.
+          type: boolean
+        customized:
+          description: Flag which indicates whether the report is customized by the
+            user.
+          type: boolean
+        customizedRtfAttachId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        canRunSeperate:
+          description: Flag which indicates if the report can be run separately.
+          type: boolean
+        multiPropertyReport:
+          description: Flag which indicates if the report can be run for multiple
+            properties.
+          type: boolean
+        procedureRequired:
+          description: Flag which indicates whether the report requires a procedure.
+          type: boolean
+        userDefinedReport:
+          description: Flag which indicates whether the report is user defined.
+          type: boolean
+        protectedReport:
+          description: Flag which indicates whether the report is protected.
+          type: boolean
+        systemReport:
+          description: Flag to indicate whether this is a system report.
+          type: boolean
+        destination:
+          description: Report default destination.
+          maxLength: 20
+          minLength: 0
+          type: string
+        defaultPrinterName:
+          description: Default printer name.
+          maxLength: 20
+          minLength: 0
+          type: string
+        copies:
+          description: Number of copies configured for report.
+          type: integer
+        shiftReport:
+          description: Flag to indicate whether this is a shift report.
+          type: boolean
+        dataSourceType:
+          description: Set to ODT for BI Publisher reports.
+          maxLength: 10
+          minLength: 0
+          type: string
+        dataSource:
+          description: Data source for BI Publisher reports.
+          maxLength: 255
+          minLength: 0
+          type: string
+        usedInApp:
+          description: A comma separated list of Opera V5 application indicators for
+            which the report is enabled.
+          maxLength: 20
+          minLength: 0
+          type: string
+        opera9Certified:
+          description: A flag indicating that the report has been certified for use
+            with Opera 9.
+          type: boolean
+        watermarkDetails:
+          $ref: '#/components/schemas/watermarkType'
+        externalReportUrl:
+          $ref: '#/components/schemas/externalUrlInfoType'
+        rowsPerPage:
+          description: Rows for Key Packet report group.
+          type: integer
+        columnsPerPage:
+          description: Columns for Key Packet report group.
+          type: integer
+        excelOutput:
+          description: Flag to indicate whether the report can be exported to Excel.
+          type: boolean
+      type: object
+    reportModuleTypeType:
+      description: Procedure Report
+      enum:
+      - Rtf
+      - Cus
+      - Rep
+      - Sft
+      - Grp
+      - Url
+      - Lbl
+      - Pcd
+      - Rna
+      type: string
+    watermarkType:
+      description: Details of the watermark to be used at the time of report generation.
+      properties:
+        mode:
+          $ref: '#/components/schemas/watermarkModeType'
+        text:
+          description: Watermark Text.
+          maxLength: 200
+          minLength: 0
+          type: string
+        font:
+          description: Watermark font name.
+          maxLength: 100
+          minLength: 0
+          type: string
+        fontSize:
+          description: Watermark font name.
+          type: number
+        xPosition:
+          description: X position of watermark on page starting in lower left corner.
+          type: integer
+        yPosition:
+          description: Y position of watermark on page starting in lower left corner.
+          type: integer
+        angle:
+          description: Watermark angle in degrees.
+          type: integer
+        red:
+          description: "Watermark color (red), value ranges from 0.0 to 1.0 ( Java\
+            \ API values )."
+          type: number
+        green:
+          description: "Watermark color (green), value ranges from 0.0 to 1.0 ( Java\
+            \ API values )."
+          type: number
+        blue:
+          description: "Watermark color (blue), value ranges from 0.0 to 1.0 ( Java\
+            \ API values )."
+          type: number
+      type: object
+    watermarkModeType:
+      description: Identifies the data type of the report parameter.
+      enum:
+      - Simple
+      - Enhanced
+      - NoWatermark
+      - GroupSettings
+      type: string
+    translationTextType1000:
+      description: Contains Multiple translated texts and language codes.
+      properties:
+        defaultText:
+          description: Default text with Character length from 0 to 1000.
+          maxLength: 1000
+          minLength: 0
+          type: string
+        translatedTexts:
+          description: Language code for the translation.
+          items:
+            $ref: '#/components/schemas/translationsTextType_inner'
+          maxItems: 4000
+          type: array
+      type: object
+    translationsTextType:
+      description: Language code for the translation.
+      items:
+        $ref: '#/components/schemas/translationsTextType_inner'
+      maxItems: 4000
+      type: array
+    uniqueIDListType:
+      description: Unique Id that references an object uniquely in the system.
+      items:
+        $ref: '#/components/schemas/uniqueID_Type'
+      maxItems: 4000
+      type: array
+    externalUrlInfoType:
+      description: Contains all the information of External Urls.
+      properties:
+        externalReportUrl:
+          description: Report Url from external source.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        isUrlDynamic:
+          description: Indicates if the Url is dynamic
+          type: boolean
+      type: object
+    reports:
+      description: This type contains a collection of report modules which match the
+        requested criteria. The object also may include a standard SUCCESS element
+        or a WARNINGS or ERRORS collection.
+      properties:
+        reports:
+          $ref: '#/components/schemas/reportsType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    reportParametersType:
+      description: List of parameters required to run report.
+      items:
+        $ref: '#/components/schemas/reportParameterType'
+      maxItems: 4000
+      type: array
+    reportParameterType:
+      description: Defines an individual report parameter.
+      properties:
+        name:
+          description: Individual report parameter details.
+          maxLength: 400
+          minLength: 0
+          type: string
+        label:
+          description: Display label for report parameter.
+          maxLength: 80
+          minLength: 0
+          type: string
+        dataType:
+          $ref: '#/components/schemas/paramDataType'
+        value:
+          description: Initial report parameter value.
+          maxLength: 4000
+          minLength: 0
+          type: string
+        calculatedDateValue:
+          description: Date value from offset.
+          format: date
+          type: string
+        dateFormatMask:
+          description: Format mask for date report parameters.
+          maxLength: 40
+          minLength: 0
+          type: string
+        orderBy:
+          description: Report parameter display order.
+          type: integer
+        dateOffset:
+          description: Number of days to offset from current business date for date
+            report parameter.
+          type: integer
+        formatMask:
+          $ref: '#/components/schemas/paramFormatMaskType'
+        buildStringForDateOffset:
+          maxLength: 32000
+          minLength: 0
+          type: string
+        lovParam:
+          $ref: '#/components/schemas/lovParamDetailsType'
+      type: object
+    paramDataType:
+      description: Identifies the data type of the report parameter.
+      enum:
+      - DateAsChar
+      - Date
+      - Number
+      - CheckBox
+      - DateTime
+      - Char
+      - Money
+      - Integer
+      type: string
+    lovParamDetailsType:
+      description: Identifies a destination record for the report.
+      properties:
+        lovSql:
+          description: Query statement for LOV based report parameters.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        lOVs:
+          description: List of values for report parameter.
+          items:
+            $ref: '#/components/schemas/paramLOVType'
+          maxItems: 4000
+          type: array
+        lovValidate:
+          description: Flag to indicate that input should be validated against LOV.
+          type: boolean
+        lovMultiSelect:
+          description: This attribute is used to indicate if an LOV defined is multi-select.
+            This is particularly useful for simple reports.
+          type: boolean
+      type: object
+    paramLOVsType:
+      description: List of values for report parameter.
+      items:
+        $ref: '#/components/schemas/paramLOVType'
+      maxItems: 4000
+      type: array
+    paramLOVType:
+      description: Represents an individual LOV item for a report parameter.
+      properties:
+        code:
+          description: Report parameter LOV code.
+          type: string
+        description:
+          description: Report parameter LOV label.
+          type: string
+        string:
+          description: Report parameter LOV string (third attribute returned for some
+            queries).
+          type: string
+      type: object
+    paramFormatMaskType:
+      description: Specifies the format mask for the parameter.
+      enum:
+      - None
+      - Upper
+      - Lower
+      type: string
+    configGenericReportsType:
+      description: It contains collection of reports.
+      properties:
+        report:
+          description: A generic report.
+          items:
+            $ref: '#/components/schemas/configGenericReportType'
+          maxItems: 4000
+          type: array
+        hotelId:
+          description: Hotel code in which reports to be set up belong to.
+          maxLength: 20
+          minLength: 0
+          type: string
+        chainCode:
+          description: Chain code in which reports to be set up belong to.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    configGenericReportType:
+      description: A mandatory or non-mandatory procedure or report.
+      properties:
+        name:
+          $ref: '#/components/schemas/translationTextType1000'
+        reportName:
+          description: Name of the .REP or .RTF file. .REP or .RTF extension is not
+            needed.
+          maxLength: 80
+          minLength: 0
+          type: string
+        userDefinedReport:
+          description: Flag which indicates whether the report is user defined.
+          type: boolean
+        moduleType:
+          $ref: '#/components/schemas/reportModuleTypeType'
+        usedInApp:
+          description: "Report can be run in these applications - Global level, property\
+            \ level or in the Sales & Event Management."
+          items:
+            $ref: '#/components/schemas/reportRunnableApps'
+          maxItems: 3
+          type: array
+        dataSourceType:
+          description: Set to ODT for BI Publisher reports.
+          maxLength: 10
+          minLength: 0
+          type: string
+        dataSource:
+          description: Data source for BI Publisher reports.
+          maxLength: 255
+          minLength: 0
+          type: string
+        mandatory:
+          description: Flag indicating whether procedure or report is mandatory or
+            not.
+          type: boolean
+        formToRun:
+          description: Form which is run to collect parameter information to generate
+            the report.
+          maxLength: 80
+          minLength: 0
+          type: string
+        reportLanguage:
+          description: "The language in which the report is configured. This language\
+            \ code will be used when running a report for guests like registration\
+            \ cards, folio etc when GUEST LANGUAGE functionality is turned on."
+          maxLength: 20
+          minLength: 0
+          type: string
+        active:
+          description: Flag indicating whether procedure or report is active to run.
+          type: boolean
+        protected:
+          description: Flag indicating whether report is protected or not.
+          type: boolean
+        sequence:
+          description: Display sequence of procedure or report.
+          type: integer
+        reportGroup:
+          description: Report group to which the report is being added.
+          maxLength: 80
+          minLength: 0
+          type: string
+        multiPropertyReport:
+          description: Flag which indicates if the report can be run for multiple
+            properties.
+          type: boolean
+        excelOutput:
+          description: Flag to indicate whether the report can be exported to Excel.
+          type: boolean
+        attachedReports:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        watermarkDetails:
+          $ref: '#/components/schemas/watermarkType'
+        parameters:
+          description: A report parameter.
+          items:
+            $ref: '#/components/schemas/configReportParameterType'
+          maxItems: 4000
+          type: array
+        rowsPerPage:
+          description: Rows to be entered for Key Packet report group.
+          type: integer
+        columnsPerPage:
+          description: Columns to be entered for Key Packet report group.
+          type: integer
+        moduleId:
+          $ref: '#/components/schemas/uniqueID_Type'
+        externalReportUrl:
+          $ref: '#/components/schemas/externalUrlInfoType'
+        printReport:
+          $ref: '#/components/schemas/printReportType'
+      type: object
+    reportRunnableApps:
+      description: Simple type for report module type.
+      enum:
+      - Global
+      - Property
+      - SalesAndCatering
+      type: string
+    configReportParameterType:
+      description: A report parameter.
+      properties:
+        name:
+          description: Report parameter name.
+          maxLength: 400
+          minLength: 0
+          type: string
+        label:
+          description: Display label for report parameter.
+          maxLength: 80
+          minLength: 0
+          type: string
+        dataType:
+          $ref: '#/components/schemas/paramDataType'
+        value:
+          description: Default report parameter value.
+          maxLength: 4000
+          minLength: 0
+          type: string
+        dateOffset:
+          description: Date Ofset could be in the format +x DAYS.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        lovSql:
+          description: Query statement for LOV based report parameters.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        sequence:
+          description: Display sequence of report parameter.
+          type: integer
+      type: object
+    printReportType:
+      description: "Details to print or send report to printer, email or fax."
+      properties:
+        destination:
+          $ref: '#/components/schemas/printDestinationType'
+        copies:
+          description: Number of copies to be printed or sent.
+          type: integer
+        sent:
+          description: Indicates whether report has already been sent or not.
+          type: boolean
+      type: object
+    printDestinationType:
+      description: Allowed values for Print Destination.
+      enum:
+      - Printer
+      - Email
+      - Fax
+      type: string
+    reportParameters:
+      description: The Fetch Report Parameters result object contains a collection
+        of report parameters which allow/require user input prior to running the report.
+      properties:
+        reportParameters:
+          description: List of parameters required to run report.
+          items:
+            $ref: '#/components/schemas/reportParameterType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    genericReports:
+      description: This request provides End of Day reports to be created.
+      properties:
+        reports:
+          $ref: '#/components/schemas/configGenericReportsType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+      type: object
+    translationsTextType_inner:
+      description: Language code for the translation.
+      properties:
+        value:
+          description: "Used for Character Strings, length 0 to 2000."
+          maxLength: 2000
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+      type: object
+x-original-swagger-version: "2.0"
