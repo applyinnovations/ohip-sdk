@@ -9,6 +9,11 @@ type OhipCredential = {
   password: string;
 };
 
+export enum GrantTypeEnum {
+  password = 'password',
+  client_credentials = 'client_credentials',
+}
+
 interface OhipJWT {
   exp: number;
 }
@@ -23,24 +28,63 @@ export class OhipCredentialsProvider {
   ohip: AuthenticationApi;
   appKey: string;
   credentials: OhipCredential[];
+  grantType: GrantTypeEnum;
+  clientId?: string;
+  clientSecret?: string;
+  scope?: string;
+  enterpriseId?: string;
   access_token?: string;
-  last_working_credential_idx: number = 0;
+  last_working_credential_idx?: number = 0;
 
   constructor({
     appKey,
     credentials,
+    grantType,
+    clientId,
+    clientSecret,
+    enterpriseId,
+    scope,
     host,
   }: {
     appKey: string;
     host: string;
-    credentials: OhipCredential[];
+    credentials?: OhipCredential[];
+    grantType: GrantTypeEnum;
+    clientId?: string;
+    clientSecret?: string;
+    enterpriseId?: string;
+    scope?: string;
     access_token?: string; // bearer token
     expiry?: number; // epoch seconds
   }) {
     this.authenticating = false;
-    this.credentials = credentials;
+    this.credentials = credentials || [];
+    this.grantType = grantType;
+    this.enterpriseId = enterpriseId;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
+    this.scope = scope;
     this.appKey = appKey;
-    this.ohip = new AuthenticationApi(new Configuration({ host }));
+
+    if (grantType === GrantTypeEnum.client_credentials) {
+      if (!clientId) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires clientId`,
+        );
+      }
+      if (!clientSecret) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires clientSecret`,
+        );
+      }
+      this.ohip = new AuthenticationApi(new Configuration({
+        host,
+        username: clientId,
+        password: clientSecret,
+      }));
+    } else {
+      this.ohip = new AuthenticationApi(new Configuration({ host }));
+    }
   }
 
   async setAccessToken(access_token: string) {
@@ -70,6 +114,18 @@ export class OhipCredentialsProvider {
     retryCount: number;
     start?: number;
   }) {
+    if (this.grantType === GrantTypeEnum.client_credentials) {
+      if (!this.enterpriseId) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires enterpriseId`,
+        );
+      }
+      if (!this.scope) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires scopes`,
+        );
+      }
+    }
     this.authenticating = true;
     try {
       // contact ohip for new credentials
@@ -81,14 +137,20 @@ export class OhipCredentialsProvider {
       }
       await delay(retryPeriod);
       // add last working credential index to start trying the last known good credential first
-      const credential_idx = (retryCount + this.last_working_credential_idx) % this.credentials.length;
-      const credentials =
+      const credential_idx = this.credentials.length ? (retryCount + (this.last_working_credential_idx || 0)) % this.credentials.length : undefined;
+      const credentials = credential_idx &&
         this.credentials[credential_idx];
       try {
         const res = await this.ohip.getToken({
           xAppKey: this.appKey,
-          grantType: 'password',
-          ...credentials,
+          grantType: this.grantType,
+          ...(this.grantType === GrantTypeEnum.client_credentials && {
+            enterpriseId: this.enterpriseId,
+            scope: this.scope,
+          }),
+          ...(
+            this.grantType === GrantTypeEnum.password && credentials
+          )
         });
         if (res.accessToken
           && res.expiresIn

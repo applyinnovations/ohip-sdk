@@ -22,10 +22,22 @@ type OhipCredential struct {
 	Password string
 }
 
+type GrantTypeEnum string
+
+const (
+	GrantTypePassword          GrantTypeEnum = "password"
+	GrantTypeClientCredentials GrantTypeEnum = "client_credentials"
+)
+
 type NewOhipCredentialsProviderParams struct {
-	Host        string
-	AppKey      string
-	Credentials []OhipCredential
+	Host         string
+	AppKey       string
+	Credentials  []OhipCredential
+	GrantType    GrantTypeEnum
+	ClientID     *string
+	ClientSecret *string
+	Scope        *string
+	EnterpriseId *string
 }
 
 type OhipCredentialsProvider struct {
@@ -34,19 +46,48 @@ type OhipCredentialsProvider struct {
 	credentials    []OhipCredential
 	appKey         string
 	accessToken    string
+	grantType      GrantTypeEnum
+	scope          *string
+	enterpriseId   *string
 }
 
 func NewOhipCredentialsProvider(params NewOhipCredentialsProviderParams) *OhipCredentialsProvider {
 	configuration := NewConfiguration()
 	configuration.Host = params.Host
 	configuration.Scheme = "https"
+
+	if params.GrantType == GrantTypeClientCredentials {
+		if params.EnterpriseId == nil {
+			fmt.Println("GrantTypeClientCredentials requires EnterpriseId")
+			return nil
+		}
+		if params.Scope == nil {
+			fmt.Println("GrantTypeClientCredentials requires Scope")
+			return nil
+		}
+		if params.ClientID == nil {
+			fmt.Println("GrantTypeClientCredentials requires ClientID")
+			return nil
+		}
+		if params.ClientSecret == nil {
+			fmt.Println("GrantTypeClientCredentials requires ClientSecret")
+			return nil
+		}
+
+		authString := []byte(*params.ClientID + ":" + *params.ClientSecret)
+		configuration.AddDefaultHeader("Authorization", "Basic "+base64.StdEncoding.EncodeToString(authString))
+	}
+
 	apiClient := NewAPIClient(configuration)
 
 	return &OhipCredentialsProvider{
 		authenticating: &TimeoutMutex{},
 		ohip:           apiClient.AuthenticationAPI,
+		grantType:      params.GrantType,
 		credentials:    params.Credentials,
 		appKey:         params.AppKey,
+		enterpriseId:   params.EnterpriseId,
+		scope:          params.Scope,
 	}
 }
 
@@ -105,8 +146,12 @@ func (c *OhipCredentialsProvider) SetAccessToken(accessToken string) {
 func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 	retryPeriod := math.Pow(float64(retryCount), 2) * 100
 	time.Sleep(time.Duration(retryPeriod) * time.Millisecond)
+	var credential *OhipCredential = nil
 
-	credential := c.credentials[retryCount%len(c.credentials)]
+	if len(c.credentials) > 0 {
+		credential = &c.credentials[retryCount%len(c.credentials)]
+	} else {
+	}
 	accessToken, err := c.getAccessToken(credential)
 	if err != nil {
 		if retryCount < MAX_RETRIES {
@@ -127,15 +172,25 @@ func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 	return nil
 }
 
-func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (string, error) {
+func (c *OhipCredentialsProvider) getAccessToken(credential *OhipCredential) (string, error) {
 	ctx := context.Background()
 
-	resp, _, err := c.ohip.
+	client := c.ohip.
 		GetToken(ctx).
 		XAppKey(c.appKey).
-		GrantType("password").
-		Username(credential.Username).
-		Password(credential.Password).
+		GrantType(string(c.grantType))
+
+	if c.grantType == GrantTypeClientCredentials {
+		client = client.
+			EnterpriseId(*c.enterpriseId).
+			Scope(*c.scope)
+	} else {
+		client = client.
+			Username(credential.Username).
+			Password(credential.Password)
+	}
+
+	resp, _, err := client.
 		Execute()
 
 	if err == nil && resp.GetAccessToken() == "" {
