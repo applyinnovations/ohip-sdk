@@ -150,15 +150,23 @@ func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 
 	if len(c.credentials) > 0 {
 		credential = &c.credentials[retryCount%len(c.credentials)]
-	} else {
 	}
 	accessToken, err := c.getAccessToken(credential)
 	if err != nil {
 		if retryCount < MAX_RETRIES {
 			newRetryCount := retryCount + 1
 			fmt.Printf("OHIP_AUTH_ERR: %s\n", err.Error())
-			fmt.Printf("OHIP_LOG: used credential[%d] with username: %s\n", retryCount, credential.Username)
-			fmt.Printf("OHIP_LOG: attempting %d retry\n", newRetryCount)
+			fmt.Printf("OHIP_LOG: grant_type=%s, app_key=%s\n", c.grantType, c.appKey)
+			if credential != nil {
+				fmt.Printf("OHIP_LOG: used credential[%d] with username: %s\n", retryCount, credential.Username)
+			}
+			if c.enterpriseId != nil {
+				fmt.Printf("OHIP_LOG: enterprise_id=%s\n", *c.enterpriseId)
+			}
+			if c.scope != nil {
+				fmt.Printf("OHIP_LOG: scope=%s\n", *c.scope)
+			}
+			fmt.Printf("OHIP_LOG: attempting retry %d/%d\n", newRetryCount, MAX_RETRIES)
 			return c.renewCredentials(newRetryCount)
 		}
 
