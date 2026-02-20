@@ -193,11 +193,15 @@ func (c *OhipCredentialsProvider) getAccessToken(credential *OhipCredential) (st
 	resp, _, err := client.
 		Execute()
 
-	if err == nil && resp.GetAccessToken() == "" {
+	if err != nil {
+		return "", err
+	}
+
+	if resp.GetAccessToken() == "" {
 		fmt.Println("OHIP_AUTH_ERR: access token missing from response")
 	}
 
-	return resp.GetAccessToken(), err
+	return resp.GetAccessToken(), nil
 }
 
 func isAccessTokenExpired(accessToken string) bool {
