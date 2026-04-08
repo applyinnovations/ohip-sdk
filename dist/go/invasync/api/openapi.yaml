@@ -1,0 +1,1286 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater for Inventory related asynchronous functionality in\
+    \ OPERA Cloud. This includes viewing inventory data along with its revenue and\
+    \ updating inventory&apos;s sell limits for date ranges. <p>This API follows an\
+    \ async pattern where</p><ul><li>You make an initial request, which returns a\
+    \ Location header</li><li>You poll HEAD on the Location header returned to obtain\
+    \ the status of the process</li><li>Once the process completes HEAD will return\
+    \ in the Location header the URL that must be called to obtain the results of\
+    \ the process</li><li>You call the URL to obtain the results of the process</li></ul><br\
+    \ /><br /> Compatible with OPERA Cloud release 24.4.<br /><br /><p> This document\
+    \ and all content within is available under the Universal Permissive License v\
+    \ 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2024 Oracle and/or\
+    \ its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: Opera Cloud Inventory Asynchronous API
+  version: "24.4"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /inv/async/v1
+tags:
+- description: The Inventory Asynchronous module provides capability for an external
+    system to retrieve inventory related data using an asynchronous approach.
+  name: InventoryAsync
+paths:
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/revenueInventoryStatistics:
+    post:
+      description: "Use this API to start the process to get a hotel inventory&apos;s\
+        \ revenue statistics for a given date range. Maximum limit of the date range\
+        \ is 94 days with a single request, but the recommendation is to use a date\
+        \ range proportionate to the size of the hotel. Returns a header parameter\
+        \ Location that can be used in the getRevenueInventoryStatisticsProcessStatus\
+        \ operation.  Use event driven APIs (see https://docs.oracle.com/cd/F29336_01/doc.201/f27480/c_business_events.htm#OHIPU-BusinessEvents-F0AC1F1C)\
+        \ to get real time inventory updates.<p><strong>OperationId:</strong>startRevenueInventoryStatisticsProcess</p>"
+      operationId: startRevenueInventoryStatisticsProcess
+      parameters:
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/revenueInventoryStatisticsSearchType'
+        description: Request object for fetching revenue inventory statistics asynchronously.
+        required: true
+      responses:
+        "202":
+          content: {}
+          description: Location of process status resource
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of process status resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Start process to get hotel inventory revenue statistics
+      tags:
+      - InventoryAsync
+      x-interaction:
+      - async-polling
+      x-codegen-request-body-name: criteria
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/revenueInventoryStatistics/{requestId}:
+    get:
+      description: This API returns inventory revenue&apos;s statistics for a hotel
+        within dates given in the startRevenueInventoryStatisticsProcess API request.
+        You can get the value of the summaryId from the Location header returned by
+        the getRevenueInventoryStatisticsProcessStatus operation after the process
+        is completed.<p><strong>OperationId:</strong>getRevenueInventoryStatistics</p>
+      operationId: getRevenueInventoryStatistics
+      parameters:
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/revenueInventoryStatisticsDetails'
+          description: Response for fetched revenue inventory statistics.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get results of a revenue inventory statistics process
+      tags:
+      - InventoryAsync
+    head:
+      description: Use this API to check whether the process to collate inventory
+        revenue statistics is complete. You can get value of summaryId from the Location
+        header returned by the startRevenueInventoryStatisticsProcess operation.<p><strong>OperationId:</strong>getRevenueInventoryStatisticsProcessStatus</p>
+      operationId: getRevenueInventoryStatisticsProcessStatus
+      parameters:
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Processing
+                - Invalid
+                type: string
+            Cache-Control:
+              description: number of seconds to wait before polling again.
+              schema:
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "201":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Completed
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource once the status of process
+                run is Complete.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Check status of Inventory Revenue Statistic process
+      tags:
+      - InventoryAsync
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/sellLimits:
+    post:
+      description: You can use this API to create sell limits in OPERA by date. <p><strong>OperationId:</strong>postSellLimitsProcess</p>
+      operationId: postSellLimitsProcess
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/sellLimitsByDate'
+        description: "Request for setting sell limits for house, room type, room class."
+        required: true
+      responses:
+        "202":
+          content: {}
+          description: Location of process status resource
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of process status resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Create sell limit by date.
+      tags:
+      - InventoryAsync
+      x-interaction:
+      - async-polling
+      x-codegen-request-body-name: sellLimitsByDate
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/sellLimits/{requestId}:
+    get:
+      description: This API returns the status log if any of sell limit data creation
+        is failed. You can get the value of summaryId with the getSellLimitsProcessStatus
+        API response (under header location). <p><strong>OperationId:</strong>getSellLimits</p>
+      operationId: getSellLimits
+      parameters:
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/sellLimitByDateStatus'
+          description: This asynchronous callback base type is used as a base for
+            an extension for Opera Web Services Callback Requests to provide uniform
+            implementation.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: SetSellLimitByDate not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get status for sell limits for a property.
+      tags:
+      - InventoryAsync
+    head:
+      description: Use this API to check whether the sell limit data creation is completed
+        yet. You can get the value of the summaryId with the postSellLimitsProcess
+        API response (under header location). <p><strong>OperationId:</strong>getSellLimitsProcessStatus</p>
+      operationId: getSellLimitsProcessStatus
+      parameters:
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Processing
+                - Invalid
+                type: string
+            Cache-Control:
+              description: number of seconds to wait before polling again.
+              schema:
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "201":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Completed
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource once the status of process
+                run is Complete.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Get the status for sell limits asynchronous process
+      tags:
+      - InventoryAsync
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner's Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      title: Error Instance Details
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    revenueInventoryStatisticsSearchType:
+      description: Fetch criteria type for fetching revenue inventory statistics.
+      properties:
+        dateRangeStart:
+          description: The starting value of the date range.
+          format: date
+          type: string
+        dateRangeEnd:
+          description: The ending value of the date range.
+          format: date
+          type: string
+        roomTypes:
+          description: The optional room types by which revenue and inventory statistics
+            will be grouped.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        marketCodes:
+          description: The market codes for which revenue and inventory statistics
+            will be gathered.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        guaranteeCodes:
+          description: The reservation guarantee codes for which revenue and inventory
+            statistics will be gathered.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        groupBy:
+          description: Group by instructions for revenue inventory statistics that
+            can be used in request operation. Response data will be grouped according
+            to the values provided in this array. MarketCode and RoomType grouping
+            is used for past and future revenue and inventory statistics while GuaranteeType
+            is used only for future revenue and inventory statistics.
+          items:
+            enum:
+            - MarketCode
+            - RoomType
+            - GuaranteeType
+            type: string
+          type: array
+          uniqueItems: true
+      type: object
+    revenueInventoryStatisticsDetails:
+      description: "Revenue Inventory Statistics for the current occupancy date which\
+        \ might include data grouped by room type, market and reservation guarantee\
+        \ code."
+      properties:
+        revInvStats:
+          items:
+            $ref: '#/components/schemas/revenueInventoryStatisticsType'
+          maxItems: 4000
+          type: array
+      type: object
+    revenueInventoryStatisticsType:
+      description: Revenue and statistics for an occupancy date and hotel code.
+      properties:
+        property:
+          description: The property for which revenue inventory statistics are fetched
+          maxLength: 20
+          minLength: 0
+          type: string
+        occupancyDate:
+          description: The occupancy date for which the revenue inventory statistics
+            are fetched.
+          format: date
+          type: string
+        resType:
+          maxLength: 20
+          minLength: 0
+          type: string
+        marketCode:
+          description: The market code for which the revenue inventory statistics
+            are fetched.
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomType:
+          description: The room type for which the revenue inventory statistics are
+            fetched.
+          maxLength: 20
+          minLength: 0
+          type: string
+        physicalRooms:
+          description: The statistical figure for physical rooms.
+          type: string
+        ooRooms:
+          description: The statistical figure for out of order rooms.
+          type: string
+        osRooms:
+          description: The statistical figure for out of service rooms.
+          type: string
+        roomsSold:
+          description: The statistical figure for rooms sold.
+          type: string
+        roomRevenue:
+          description: The statistical figure for room revenue.
+          type: string
+        roomArrivals:
+          description: The statistical figure for arrival rooms.
+          type: string
+        roomDepartures:
+          description: The statistical figure of departure rooms.
+          type: string
+        foodRevenue:
+          description: The statistical figure for food revenue.
+          type: string
+        totalRevenue:
+          description: The statistical figure for total revenue.
+          type: string
+        cancelledRooms:
+          description: The statistical figure for canceled rooms.
+          type: string
+        noShowRooms:
+          description: The statistical figure of no show rooms.
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 4000
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    sellLimitByDateStatus:
+      description: 'Response for sell limits status '
+      properties:
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      type: object
+    sellLimitsByDate:
+      description: "Request for setting sell limits for house, room type, room class."
+      items:
+        $ref: '#/components/schemas/sellLimitByDateType'
+      maxItems: 4000
+      type: array
+    sellLimitByDateType:
+      description: This type is used by sell limit request.
+      properties:
+        houseSellLimits:
+          description: Collection of House level sell limit by the date.
+          items:
+            $ref: '#/components/schemas/houseSellLimitType'
+          maxItems: 4000
+          type: array
+        roomTypeSellLimits:
+          description: Collection of Room type level sell limit by the date.
+          items:
+            $ref: '#/components/schemas/roomTypeSellLimitType'
+          maxItems: 4000
+          type: array
+        roomClassSellLimits:
+          description: Collection of Room Class level sell limit by the date.
+          items:
+            $ref: '#/components/schemas/roomClassSellLimitType'
+          maxItems: 4000
+          type: array
+      type: object
+    houseSellLimitType:
+      properties:
+        date:
+          format: date
+          type: string
+        amount:
+          type: number
+        flatOrPercentage:
+          description: Indicates if sell limit is flat or percentage.
+          enum:
+          - Flat
+          - Percentage
+          type: string
+      type: object
+    roomClassSellLimitType:
+      properties:
+        date:
+          format: date
+          type: string
+        amount:
+          type: number
+        flatOrPercentage:
+          description: Indicates if sell limit is flat or percentage.
+          enum:
+          - Flat
+          - Percentage
+          type: string
+        roomClass:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    roomTypeSellLimitType:
+      properties:
+        date:
+          format: date
+          type: string
+        amount:
+          type: number
+        flatOrPercentage:
+          description: Indicates if sell limit is flat or percentage.
+          enum:
+          - Flat
+          - Percentage
+          type: string
+        roomType:
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+x-original-swagger-version: "2.0"

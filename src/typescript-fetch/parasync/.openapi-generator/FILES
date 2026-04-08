@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+apis/AvailabilityAsyncApi.ts
+apis/index.ts
+index.ts
+models/BlockId.ts
+models/CreateRestrictionType.ts
+models/ErrorInstance.ts
+models/ExceptionDetailType.ts
+models/InstanceLink.ts
+models/RestrictionStatusType.ts
+models/RestrictionStatusesType.ts
+models/Restrictions.ts
+models/RestrictionsStatus.ts
+models/RoomTypeYieldableType.ts
+models/WarningType.ts
+models/index.ts
+runtime.ts
