@@ -2,7 +2,8 @@
   "name": "@applyinnovations/ohip-sdk",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/typescript-fetch/index.js",
+  "types": "dist/typescript-fetch/index.d.ts",
   "scripts": {
     "reset-docs": "cd hospitality-api-docs && git reset --hard && cd ..",
     "clean": "find src/typescript-fetch -type f ! -name '*Middleware.*' -exec rm {} + && find src -type d -empty -delete && rm -rf dist",
@@ -11,7 +12,8 @@
     "compile": "yarn tsc -p tsconfig.typescript-fetch.json"
   },
   "files": [
-    "src"
+    "src",
+    "dist"
   ],
   "author": "",
   "license": "ISC",
