@@ -21,14 +21,14 @@ jobs:
 
     steps:
       - name: Check out SDK source
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Read pinned Oracle commit
         id: upstream
         run: echo "commit=$(jq -r .commit upstream.json)" >> "$GITHUB_OUTPUT"
 
       - name: Check out pinned Oracle specifications
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: oracle/hospitality-api-docs
           ref: ${{ steps.upstream.outputs.commit }}
@@ -36,7 +36,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22.14.0
           cache: npm
@@ -48,7 +48,7 @@ jobs:
           java-version: '21'
 
       - name: Set up Go
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v7
         with:
           go-version: '1.25.x'
           cache: false
@@ -61,7 +61,7 @@ jobs:
 
       - name: Upload generator log
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: openapi-generator-log
           path: build.log

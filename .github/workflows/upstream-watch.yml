@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Check out SDK source
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Find latest Oracle release
         id: latest
@@ -42,7 +42,7 @@ jobs:
 
       - name: Check out candidate Oracle specifications
         if: steps.comparison.outputs.changed == 'true'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: oracle/hospitality-api-docs
           ref: ${{ steps.latest.outputs.tag }}
@@ -56,7 +56,7 @@ jobs:
 
       - name: Set up Node.js
         if: steps.comparison.outputs.changed == 'true'
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22.14.0
           cache: npm
@@ -70,7 +70,7 @@ jobs:
 
       - name: Set up Go
         if: steps.comparison.outputs.changed == 'true'
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v7
         with:
           go-version: '1.25.x'
           cache: false
@@ -91,7 +91,7 @@ jobs:
 
       - name: Open update pull request
         if: steps.comparison.outputs.changed == 'true' && steps.validation.outcome == 'success'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: automation/oracle-${{ steps.latest.outputs.release }}
           delete-branch: true
@@ -104,7 +104,7 @@ jobs:
 
       - name: Report an update requiring maintenance
         if: steps.comparison.outputs.changed == 'true' && steps.validation.outcome == 'failure'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           RELEASE: ${{ steps.latest.outputs.release }}
           REF: ${{ steps.latest.outputs.tag }}
