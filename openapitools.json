@@ -14,19 +14,21 @@
       },
       "go": {
         "generatorName": "go",
-        "output": "./dist/go/#{name}",
+        "output": "./go/#{name}",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "gitRepoId": "ohip-sdk",
         "gitUserId": "applyinnovations",
         "templateDir": "./templates/go",
         "skipOperationExample": true,
+        "globalProperty": "apiTests=false,modelTests=false,apiDocs=false,modelDocs=false",
         "typeMappings": "Date=string,DateTime=string",
         "additionalProperties": {
           "isGoSubmodule": true,
           "packageName": "#{name}",
           "structPrefix": true,
           "enumClassPrefix": true,
-          "modulePath": "dist/go",
+          "modulePath": "go",
+          "moduleMajorVersion": "v2",
           "withCustomMiddlewareFunction": true
         }
       }

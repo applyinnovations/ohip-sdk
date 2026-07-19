@@ -1,0 +1,21 @@
+{
+  "$schema": "./upstream.schema.json",
+  "repository": "https://github.com/oracle/hospitality-api-docs.git",
+  "release": "24.4",
+  "ref": "v24.4",
+  "commit": "6a002086e8fe645688adcb414a874737bee622ac",
+  "specDirectory": "rest-api-specs/property",
+  "patches": [
+    "patches/oracle-hospitality-api-docs-v24.4.patch",
+    "patches/sdk-generation-v24.4.patch"
+  ],
+  "patchedFiles": {
+    "rest-api-specs/property/blk.json": "8fe6ad34be5c7f4ebfe6718217d0332399c3a6b681ba86c392cae4424d4835be",
+    "rest-api-specs/property/rsvasync.json": "ae7414560d45f66e5e90479017d4016765b3103bfb1d44a8cd7a26edfa3da443",
+    "rest-api-specs/property/rtp.json": "cad19670bc4e4089c4bca2abe9134b8e8655d895895a4c8d9b738eecb75916d3"
+  },
+  "legacyFork": {
+    "repository": "https://github.com/applyinnovations/hospitality-api-docs.git",
+    "commit": "6d235fa737e711c69b4836956123fbea9b6babcb"
+  }
+}

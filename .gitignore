@@ -1,4 +1,7 @@
 node_modules
+.npm-cache
+.cache
+coverage
 
 # Cloned repository
 hospitality-api-docs
@@ -8,6 +11,8 @@ hospitality-api-docs
 .envrc
 
 dist
+/go
+*.tgz
 
 *.log
 

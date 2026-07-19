@@ -1,0 +1,205 @@
+diff --git a/rest-api-specs/property/rsvasync.json b/rest-api-specs/property/rsvasync.json
+index 02e6e6487d1a0a4899906861c2f680a12d2f0cd1..8e8e4fa9fe1c40a08fdc7fcda64b4b2591405728 100644
+--- a/rest-api-specs/property/rsvasync.json
++++ b/rest-api-specs/property/rsvasync.json
+@@ -2990,7 +2990,6 @@
+           "$ref": "#/definitions/advanceCheckInType"
+         },
+         "userDefinedFields": {
+-          "description": "A common type used to hold user defined fields(UDFs). ",
+           "$ref": "#/definitions/userDefinedFieldsType"
+         }
+       }
+@@ -4605,7 +4604,6 @@
+           "type": "boolean"
+         },
+         "benefits": {
+-          "description": "benefits for the membership.",
+           "$ref": "#/definitions/benefitsType"
+         },
+         "tierAdministration": {
+@@ -7996,7 +7994,6 @@
+           "maxLength": 20
+         },
+         "reservationIndicators": {
+-          "description": "Indicators of additional information attached to the reservation",
+           "$ref": "#/definitions/indicatorsType"
+         },
+         "roomStatus": {
+@@ -8012,7 +8009,6 @@
+           "$ref": "#/definitions/sourceOfSaleType"
+         },
+         "waitlist": {
+-          "description": "Information regarding why reservation has been/was waitlisted. This could hold information as history even if reservation is not in Waitlist status anymore.",
+           "$ref": "#/definitions/waitlistResType"
+         },
+         "queue": {
+@@ -8020,11 +8016,9 @@
+           "$ref": "#/definitions/reservationQueueInformationType"
+         },
+         "housekeeping": {
+-          "description": "Information regarding housekeeping for this reservation.",
+           "$ref": "#/definitions/resHousekeepingType"
+         },
+         "cashiering": {
+-          "description": "Holds cashiering related information for the reservation.",
+           "$ref": "#/definitions/resCashieringType"
+         },
+         "taxType": {
+@@ -8544,7 +8538,6 @@
+           "$ref": "#/definitions/uniqueID_Type"
+         },
+         "routingInstructions": {
+-          "description": "Set of preconfigured transaction codes.",
+           "$ref": "#/definitions/profileRoutingInstructionsType"
+         },
+         "taxType": {
+@@ -11079,7 +11072,6 @@
+       ]
+     },
+     "benefits": {
+-      "description": "benefits for the membership.",
+       "$ref": "#/definitions/benefitsType"
+     },
+     "benefitsType": {
+@@ -11181,7 +11173,6 @@
+           "type": "boolean"
+         },
+         "benefits": {
+-          "description": "benefits for the membership.",
+           "$ref": "#/definitions/benefitsType"
+         },
+         "tierAdministration": {
+@@ -11556,7 +11547,6 @@
+     },
+     "reservationPaymentMethodsType": {
+       "type": "array",
+-      "description": "Defines reservation payment methods.",
+       "maxItems": 4000,
+       "items": {
+         "$ref": "#/definitions/reservationPaymentMethodType"
+@@ -12838,38 +12828,30 @@
+       }
+     },
+     "reservationPaymentMethods": {
+-      "description": "A collection of Payment Method objects.",
+       "$ref": "#/definitions/reservationPaymentMethodsType"
+     },
+     "routingInstructions": {
+-      "description": "Set of Routing Instructions.",
+       "$ref": "#/definitions/routingInfoListType"
+     },
+     "reservationPolicies": {
+-      "description": "A collection of Cancellation Penalties objects.",
+       "$ref": "#/definitions/reservationPoliciesType"
+     },
+     "cashiering": {
+-      "description": "Holds cashiering related information for the reservation.",
+       "$ref": "#/definitions/resCashieringType"
+     },
+     "housekeeping": {
+-      "description": "Holds rooms housekeeping information.",
+       "$ref": "#/definitions/resHousekeepingType"
+     },
+     "extSystemSync": {
+       "type": "boolean"
+     },
+     "userDefinedFields": {
+-      "description": "Collections of user defined fields.",
+       "$ref": "#/definitions/userDefinedFieldsType"
+     },
+     "reservationIndicators": {
+-      "description": "Indicators of additional information attached to the reservation",
+       "$ref": "#/definitions/indicatorsType"
+     },
+     "waitlist": {
+-      "description": "Information regarding why reservation has been/was waitlisted. This could hold information as history even if reservation is no more in Waitlist status.",
+       "$ref": "#/definitions/waitlistResType"
+     },
+     "cancellation": {
+@@ -12899,7 +12881,6 @@
+       }
+     },
+     "catering": {
+-      "description": "Catering event information if reservation is associated with the catering event.",
+       "$ref": "#/definitions/cateringResInfoType"
+     },
+     "vIPStatusType": {
+@@ -13213,11 +13194,9 @@
+           }
+         },
+         "reservationPaymentMethods": {
+-          "description": "A collection of Payment Method objects.",
+           "$ref": "#/definitions/reservationPaymentMethodsType"
+         },
+         "cashiering": {
+-          "description": "Holds cashiering related information for the reservation.",
+           "$ref": "#/definitions/resCashieringType"
+         },
+         "extSystemSync": {
+@@ -13244,7 +13223,6 @@
+           "type": "boolean"
+         },
+         "userDefinedFields": {
+-          "description": "Collections of user defined fields.",
+           "$ref": "#/definitions/userDefinedFieldsType"
+         },
+         "fixedCharges": {
+@@ -13271,7 +13249,6 @@
+           "$ref": "#/definitions/hotelReservationType"
+         },
+         "routingInstructions": {
+-          "description": "Contains the routing instructions of the reservation.",
+           "$ref": "#/definitions/routingInfoListType"
+         },
+         "roomingListSequence": {
+@@ -13811,4 +13788,4 @@
+     "description": "Find out more about Oracle Hospitality",
+     "url": "https://docs.oracle.com/en/industries/hospitality/integration_platforms.html"
+   }
+-}
+\ No newline at end of file
++}
+diff --git a/rest-api-specs/property/rtp.json b/rest-api-specs/property/rtp.json
+index 7485ea129a340c99a7db51bd025751fa99fea6bf..64bb7a61cc0f1cbf3b8bf1887ce57245668712ff 100644
+--- a/rest-api-specs/property/rtp.json
++++ b/rest-api-specs/property/rtp.json
+@@ -15512,7 +15512,6 @@
+           "$ref": "#/definitions/rateCodes"
+         },
+         "roomTypes": {
+-          "description": "List of room types for which the range update has to be applied.",
+           "$ref": "#/definitions/roomTypes"
+         },
+         "rateAmounts": {
+@@ -15608,7 +15607,6 @@
+       ]
+     },
+     "rateCodes": {
+-      "description": "List of rate codes.",
+       "$ref": "#/definitions/rateCodesListType"
+     },
+     "rateCodesListType": {
+@@ -15622,7 +15620,6 @@
+       }
+     },
+     "roomTypes": {
+-      "description": "List of room types.",
+       "$ref": "#/definitions/roomTypeListType"
+     },
+     "roomTypeListType": {
+@@ -22212,7 +22209,6 @@
+       "description": "Request object to synchronize rate codes.",
+       "properties": {
+         "ratePlanCodes": {
+-          "description": "List of rate codes for which the synchronization has to be applied.",
+           "$ref": "#/definitions/rateCodesListType"
+         },
+         "target": {
+@@ -22293,4 +22289,4 @@
+     "description": "Find out more about Oracle Hospitality",
+     "url": "https://docs.oracle.com/en/industries/hospitality/integration_platforms.html"
+   }
+-}
+\ No newline at end of file
++}

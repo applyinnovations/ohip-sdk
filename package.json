@@ -1,27 +1,82 @@
 {
   "name": "@applyinnovations/ohip-sdk",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/typescript-fetch/index.js",
-  "types": "dist/typescript-fetch/index.d.ts",
-  "scripts": {
-    "reset-docs": "cd hospitality-api-docs && git reset --hard && cd ..",
-    "clean": "find src/typescript-fetch -type f ! -name '*Middleware.*' -exec rm {} + && find src -type d -empty -delete && rm -rf dist",
-    "copy-go": "cp -r src/go/* dist/go/",
-    "build": "openapi-generator-cli generate > build.log && yarn copy-go",
-    "compile": "yarn tsc -p tsconfig.typescript-fetch.json"
-  },
-  "files": [
-    "src",
-    "dist"
-  ],
-  "author": "",
+  "version": "2.0.0",
+  "description": "Generated TypeScript and Go clients for Oracle Hospitality Integration Platform APIs",
   "license": "ISC",
-  "dependencies": {},
+  "author": "Apply Innovations",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/applyinnovations/ohip-sdk.git"
+  },
+  "homepage": "https://github.com/applyinnovations/ohip-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/applyinnovations/ohip-sdk/issues"
+  },
+  "engines": {
+    "node": ">=22.14.0 <23"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist/typescript-fetch",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "exports": {
+    "./authenticationMiddleware": {
+      "types": "./dist/typescript-fetch/authenticationMiddleware.d.ts",
+      "require": "./dist/typescript-fetch/authenticationMiddleware.js",
+      "default": "./dist/typescript-fetch/authenticationMiddleware.js"
+    },
+    "./cashierMappingMiddleware": {
+      "types": "./dist/typescript-fetch/cashierMappingMiddleware.d.ts",
+      "require": "./dist/typescript-fetch/cashierMappingMiddleware.js",
+      "default": "./dist/typescript-fetch/cashierMappingMiddleware.js"
+    },
+    "./*": {
+      "types": "./dist/typescript-fetch/*/index.d.ts",
+      "require": "./dist/typescript-fetch/*/index.js",
+      "default": "./dist/typescript-fetch/*/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "authenticationMiddleware": [
+        "dist/typescript-fetch/authenticationMiddleware.d.ts"
+      ],
+      "cashierMappingMiddleware": [
+        "dist/typescript-fetch/cashierMappingMiddleware.d.ts"
+      ],
+      "*": [
+        "dist/typescript-fetch/*/index.d.ts"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org"
+  },
+  "ohip": {
+    "release": "24.4",
+    "upstreamCommit": "6a002086e8fe645688adcb414a874737bee622ac",
+    "generatorVersion": "7.1.0"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "upstream:prepare": "node scripts/prepare-upstream.mjs",
+    "specs:validate": "node scripts/validate-specs.mjs",
+    "generate": "npm run upstream:prepare && node scripts/generate.mjs",
+    "compile": "tsc -p tsconfig.typescript-fetch.json",
+    "prepare:release": "npm run clean && npm run specs:validate && npm run generate && npm run compile",
+    "test": "node --test test/typescript/*.test.cjs",
+    "test:go": "node scripts/test-go.mjs",
+    "pack:check": "node scripts/check-package.mjs",
+    "validate": "npm run prepare:release && npm test && npm run test:go && npm run pack:check"
+  },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "2.18.4",
-    "@types/node": "^18.11.17",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "@openapitools/openapi-generator-cli": "2.39.1",
+    "@types/node": "22.15.3",
+    "typescript": "5.8.3"
   }
 }
