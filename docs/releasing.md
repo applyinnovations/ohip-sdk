@@ -7,22 +7,11 @@ pull requests, and prevent tag deletion or updates for `v*` and `go/*` tags.
 Create a GitHub environment named `npm`; approval rules are recommended for
 production publishing.
 
-The npm package name is currently unclaimed in the public registry, so trusted
-publishing cannot be configured until the first version exists. For the 2.0.0
-bootstrap only:
-
-1. Confirm the `applyinnovations` npm organization owns the scope and the
-   releasing account can create `@applyinnovations/ohip-sdk`.
-2. Add a short-lived npm publishing credential as the `NPM_TOKEN` secret on the
-   GitHub `npm` environment.
-3. Merge the 2.0 work, then publish a GitHub release for the source tag
-   `v2.0.0`. The release workflow validates the tag and package version, creates
-   all Go module tags, and publishes npm with provenance.
-4. In the new npm package settings, configure GitHub Actions as the trusted
-   publisher: organization `applyinnovations`, repository `ohip-sdk`, workflow
-   `release.yml`, environment `npm`, with `npm publish` allowed.
-5. Delete the bootstrap secret and revoke its npm credential. After confirming
-   OIDC publishing, configure npm to require 2FA and disallow token publishing.
+Configure GitHub Actions as the npm trusted publisher: organization
+`applyinnovations`, repository `ohip-sdk`, workflow `release.yml`, environment
+`npm`, with only `npm publish` allowed. Configure npm publishing access to
+require 2FA and disallow token publishing. Do not add a long-lived npm publish
+token to the repository or environment.
 
 Trusted publishing requires a GitHub-hosted runner, `id-token: write`, Node
 22.14 or later, and npm 11.5.1 or later. The workflow pins npm 11.15.0 and
@@ -37,8 +26,8 @@ version:
 - `feat:` produces a minor candidate.
 - `feat!:` or a `BREAKING CHANGE:` footer produces a major candidate.
 
-Review and merge the Release Please PR. Its GitHub release triggers
-`release.yml`. A successful run leaves:
+Review and merge the Release Please PR. It creates the GitHub release and
+explicitly dispatches `release.yml` for the new tag. A successful run leaves:
 
 - npm package `@applyinnovations/ohip-sdk@X.Y.Z`;
 - source tag `vX.Y.Z` and GitHub release tarball;
