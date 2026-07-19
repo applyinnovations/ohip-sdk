@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/applyinnovations/ohip-sdk/compare/v2.0.1...v3.0.0) (2026-07-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **upstream:** update Oracle specs to 26.2 ([#34](https://github.com/applyinnovations/ohip-sdk/issues/34))
+
+### Features
+
+* **upstream:** update Oracle specs to 26.2 ([#34](https://github.com/applyinnovations/ohip-sdk/issues/34)) ([99720d9](https://github.com/applyinnovations/ohip-sdk/commit/99720d94ed4e9a671b1c6330d95c6fd40e84fcae))
+
 ## [2.0.1](https://github.com/applyinnovations/ohip-sdk/compare/v2.0.0...v2.0.1) (2026-07-19)
 
 
