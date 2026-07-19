@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Check out source release
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.release.tag_name || inputs.release_tag }}
           fetch-depth: 0
@@ -43,7 +43,7 @@ jobs:
         run: echo "commit=$(jq -r .commit upstream.json)" >> "$GITHUB_OUTPUT"
 
       - name: Check out pinned Oracle specifications
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: oracle/hospitality-api-docs
           ref: ${{ steps.upstream.outputs.commit }}
@@ -51,7 +51,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22.14.0
           registry-url: https://registry.npmjs.org
@@ -64,7 +64,7 @@ jobs:
           java-version: '21'
 
       - name: Set up Go
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v7
         with:
           go-version: '1.25.x'
           cache: false
@@ -141,14 +141,14 @@ jobs:
           fi
 
       - name: Attach npm package to GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.event.release.tag_name || inputs.release_tag }}
           files: release-artifacts/*.tgz
 
       - name: Upload generator log
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: openapi-generator-log-${{ github.event.release.tag_name || inputs.release_tag }}
           path: build.log
