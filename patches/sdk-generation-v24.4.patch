@@ -1,0 +1,21 @@
+diff --git a/rest-api-specs/property/blk.json b/rest-api-specs/property/blk.json
+--- a/rest-api-specs/property/blk.json
++++ b/rest-api-specs/property/blk.json
+@@ -52906,7 +52906,7 @@
+         },
+         "newBlock": {
+           "description": "Information about the new block.",
+-          "$ref": "#/definitions/newBlockDetailsType"
++          "$ref": "#/definitions/copiedBlockDetailsType"
+         },
+         "subBlocks": {
+           "type": "array",
+@@ -53035,7 +53035,7 @@
+         }
+       }
+     },
+-    "newBlockDetailsType": {
++    "copiedBlockDetailsType": {
+       "type": "object",
+       "description": "This is used when creating a copy of a block.",
+       "properties": {

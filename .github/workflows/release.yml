@@ -1,0 +1,148 @@
+name: Publish release
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: release-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: startsWith(github.event.release.tag_name, 'v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment: npm
+
+    steps:
+      - name: Check out source release
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          fetch-depth: 0
+
+      - name: Verify release version
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: node scripts/assert-release-version.mjs
+
+      - name: Read pinned Oracle commit
+        id: upstream
+        run: echo "commit=$(jq -r .commit upstream.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Check out pinned Oracle specifications
+        uses: actions/checkout@v6
+        with:
+          repository: oracle/hospitality-api-docs
+          ref: ${{ steps.upstream.outputs.commit }}
+          path: hospitality-api-docs
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22.14.0
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.25.x'
+          cache: false
+
+      - name: Install publishing client and pinned dependencies
+        run: |
+          npm install --global npm@11.15.0
+          npm ci
+
+      - name: Regenerate, test, and verify package contents
+        run: npm run validate
+
+      - name: Build npm release artifact
+        run: |
+          mkdir release-artifacts
+          npm pack --ignore-scripts --pack-destination release-artifacts
+
+      - name: Commit generated Go modules
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          version="${RELEASE_TAG#v}"
+          branch="generated/$RELEASE_TAG"
+          git switch --create "$branch"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add --force go
+          git commit -m "chore(release): generated Go modules for $RELEASE_TAG"
+
+          tag_refs=()
+          while IFS=$'\t' read -r module _module_path; do
+            tag="go/$module/v$version"
+            git tag --annotate "$tag" --message "$tag"
+            tag_refs+=("refs/tags/$tag")
+          done < <(node scripts/list-go-modules.mjs)
+
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+            git fetch origin "refs/heads/$branch:refs/remotes/origin/$branch"
+            expected=$(git rev-parse "refs/remotes/origin/$branch")
+            if [ "$(git rev-parse HEAD^{tree})" != "$(git rev-parse "$expected^{tree}")" ]; then
+              echo "Existing generated branch $branch is not reproducible from this release." >&2
+              exit 1
+            fi
+            for ref in "${tag_refs[@]}"; do
+              check_ref="refs/ohip-release-check/${ref#refs/tags/}"
+              git fetch origin "$ref:$check_ref"
+              if [ "$(git rev-list -n 1 "$check_ref")" != "$expected" ]; then
+                echo "Existing tag $ref does not point to $branch." >&2
+                exit 1
+              fi
+            done
+            echo "The generated Go release already exists and matches this build."
+          else
+            for ref in "${tag_refs[@]}"; do
+              if git ls-remote --exit-code --tags origin "$ref" >/dev/null 2>&1; then
+                echo "Tag $ref exists without generated branch $branch; refusing a partial release." >&2
+                exit 1
+              fi
+            done
+            git push --atomic origin "HEAD:refs/heads/$branch" "${tag_refs[@]}"
+          fi
+
+      - name: Publish TypeScript package with provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          package=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          if npm view "$package@$version" version >/dev/null 2>&1; then
+            echo "$package@$version is already published."
+          else
+            npm publish release-artifacts/*.tgz --access public --provenance
+          fi
+
+      - name: Attach npm package to GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-artifacts/*.tgz
+
+      - name: Upload generator log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: openapi-generator-log-${{ github.event.release.tag_name }}
+          path: build.log
+          if-no-files-found: ignore
+          retention-days: 30

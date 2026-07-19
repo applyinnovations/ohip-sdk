@@ -138,8 +138,9 @@ export class OhipCredentialsProvider {
       await delay(retryPeriod);
       // add last working credential index to start trying the last known good credential first
       const credential_idx = this.credentials.length ? (retryCount + (this.last_working_credential_idx || 0)) % this.credentials.length : undefined;
-      const credentials = credential_idx &&
-        this.credentials[credential_idx];
+      const credentials = credential_idx === undefined
+        ? undefined
+        : this.credentials[credential_idx];
       try {
         const res = await this.ohip.getToken({
           xAppKey: this.appKey,
