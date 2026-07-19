@@ -58,8 +58,8 @@
     "registry": "https://registry.npmjs.org"
   },
   "ohip": {
-    "release": "24.4",
-    "upstreamCommit": "6a002086e8fe645688adcb414a874737bee622ac",
+    "release": "26.2",
+    "upstreamCommit": "52ca1813e050980441a8a9988d0ced3d209698e4",
     "generatorVersion": "7.1.0"
   },
   "scripts": {

@@ -31,10 +31,19 @@ try {
   await log.close();
 }
 
+const output = await readFile(logPath, 'utf8');
 if (exitCode !== 0) {
-  const lines = (await readFile(logPath, 'utf8')).trimEnd().split('\n');
+  const lines = output.trimEnd().split('\n');
   console.error(lines.slice(-100).join('\n'));
   throw new Error(`OpenAPI generation failed; see ${logPath}`);
+}
+
+const parserFailures = output
+  .split('\n')
+  .filter((line) => /Exception while parsing:|JsonParseException|JsonMappingException/.test(line));
+if (parserFailures.length > 0) {
+  console.error(parserFailures.join('\n'));
+  throw new Error(`OpenAPI Generator reported schema parser failures; see ${logPath}`);
 }
 
 await import('./copy-go-customizations.mjs');

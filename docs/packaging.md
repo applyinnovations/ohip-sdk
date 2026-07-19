@@ -40,7 +40,8 @@ for example `@applyinnovations/ohip-sdk/crm`. Its tarball excludes generated
 source, Go, documentation emitted by the generator, caches, and build tooling.
 
 Every Go API is a module at
-`github.com/applyinnovations/ohip-sdk/go/<api>/v2`. A release creates an
+`github.com/applyinnovations/ohip-sdk/go/<api>/vN`, where `N` is the SDK major.
+A release creates an
 immutable `go/<api>/vX.Y.Z` tag for each module. Generated Go sources live on a
 `generated/vX.Y.Z` branch so ordinary source clones and source tags stay small.
 
@@ -85,4 +86,5 @@ on its public effect.
 Dependabot or Renovate can now propose ordinary npm and Go module upgrades.
 The downstream CI gate should run TypeScript lint/type-check/tests, `go mod
 tidy`, `go mod vendor`, and Go tests. No archive overlays or dependency removal
-scripts should remain. See `MIGRATION.md` for the one-time 2.0 path changes.
+scripts should remain. See `MIGRATION.md` and `MIGRATION_V3.md` for
+major-version migrations.

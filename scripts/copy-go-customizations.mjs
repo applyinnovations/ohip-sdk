@@ -5,6 +5,11 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = path.join(root, 'src', 'go', 'oauth', 'authentication_middleware.go');
 const destinationDir = path.join(root, 'go', 'oauth');
+const generatorConfig = JSON.parse(
+  await readFile(path.join(root, 'openapitools.json'), 'utf8'),
+);
+const moduleMajorVersion = generatorConfig['generator-cli'].generators.go
+  .additionalProperties.moduleMajorVersion;
 
 await mkdir(destinationDir, { recursive: true });
 await cp(source, path.join(destinationDir, 'authentication_middleware.go'));
@@ -26,7 +31,7 @@ for (const entry of await readdir(path.join(root, 'go'), { withFileTypes: true }
   const readmePath = path.join(moduleDir, 'README.md');
   const readme = await readFile(readmePath, 'utf8');
   const oldImport = `github.com/applyinnovations/ohip-sdk/${entry.name}`;
-  const newImport = `github.com/applyinnovations/ohip-sdk/go/${entry.name}/v2`;
+  const newImport = `github.com/applyinnovations/ohip-sdk/go/${entry.name}/${moduleMajorVersion}`;
   await writeFile(readmePath, readme.replaceAll(oldImport, newImport));
 }
 

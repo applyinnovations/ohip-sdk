@@ -1,7 +1,7 @@
-diff --git a/rest-api-specs/property/rsvasync.json b/rest-api-specs/property/rsvasync.json
+diff --git a/rest-api-specs/property/v1/rsvasync.json b/rest-api-specs/property/v1/rsvasync.json
 index 02e6e6487d1a0a4899906861c2f680a12d2f0cd1..8e8e4fa9fe1c40a08fdc7fcda64b4b2591405728 100644
---- a/rest-api-specs/property/rsvasync.json
-+++ b/rest-api-specs/property/rsvasync.json
+--- a/rest-api-specs/property/v1/rsvasync.json
++++ b/rest-api-specs/property/v1/rsvasync.json
 @@ -2990,7 +2990,6 @@
            "$ref": "#/definitions/advanceCheckInType"
          },
@@ -153,17 +153,10 @@ index 02e6e6487d1a0a4899906861c2f680a12d2f0cd1..8e8e4fa9fe1c40a08fdc7fcda64b4b25
            "$ref": "#/definitions/routingInfoListType"
          },
          "roomingListSequence": {
-@@ -13811,4 +13788,4 @@
-     "description": "Find out more about Oracle Hospitality",
-     "url": "https://docs.oracle.com/en/industries/hospitality/integration_platforms.html"
-   }
--}
-\ No newline at end of file
-+}
-diff --git a/rest-api-specs/property/rtp.json b/rest-api-specs/property/rtp.json
+diff --git a/rest-api-specs/property/v1/rtp.json b/rest-api-specs/property/v1/rtp.json
 index 7485ea129a340c99a7db51bd025751fa99fea6bf..64bb7a61cc0f1cbf3b8bf1887ce57245668712ff 100644
---- a/rest-api-specs/property/rtp.json
-+++ b/rest-api-specs/property/rtp.json
+--- a/rest-api-specs/property/v1/rtp.json
++++ b/rest-api-specs/property/v1/rtp.json
 @@ -15512,7 +15512,6 @@
            "$ref": "#/definitions/rateCodes"
          },
@@ -196,10 +189,3 @@ index 7485ea129a340c99a7db51bd025751fa99fea6bf..64bb7a61cc0f1cbf3b8bf1887ce57245
            "$ref": "#/definitions/rateCodesListType"
          },
          "target": {
-@@ -22293,4 +22289,4 @@
-     "description": "Find out more about Oracle Hospitality",
-     "url": "https://docs.oracle.com/en/industries/hospitality/integration_platforms.html"
-   }
--}
-\ No newline at end of file
-+}
