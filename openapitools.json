@@ -8,14 +8,14 @@
         "generatorName": "typescript-fetch",
         "output": "./src/typescript-fetch/#{name}",
         "templateDir": "templates/typescript-fetch",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/v1/*.json",
         "skipOperationExample": true,
         "typeMappings": "Date=string,DateTime=string"
       },
       "go": {
         "generatorName": "go",
         "output": "./go/#{name}",
-        "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/v1/*.json",
         "gitRepoId": "ohip-sdk",
         "gitUserId": "applyinnovations",
         "templateDir": "./templates/go",
@@ -28,7 +28,7 @@
           "structPrefix": true,
           "enumClassPrefix": true,
           "modulePath": "go",
-          "moduleMajorVersion": "v2",
+          "moduleMajorVersion": "v3",
           "withCustomMiddlewareFunction": true
         }
       }

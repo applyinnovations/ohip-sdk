@@ -6,8 +6,8 @@ cashier-mapping middleware.
 
 The SDK version follows Semantic Versioning. The Oracle source release is
 tracked independently and immutably in [`upstream.json`](./upstream.json).
-Version 2.0.0 is generated from Oracle Property API 24.4 at commit
-`6a002086e8fe645688adcb414a874737bee622ac`.
+Version 3.0.0 is generated from Oracle Property API 26.2 at commit
+`52ca1813e050980441a8a9988d0ced3d209698e4`.
 
 ## TypeScript
 
@@ -51,18 +51,18 @@ Go clients, generator state, and build tooling are not included.
 
 ## Go
 
-Each Property API is an independently versioned Go module. Major version 2 is
+Each Property API is an independently versioned Go module. Major version 3 is
 part of the module and import paths, as required by Go modules:
 
 ```sh
-go get github.com/applyinnovations/ohip-sdk/go/oauth/v2@v2.0.0
-go get github.com/applyinnovations/ohip-sdk/go/crm/v2@v2.0.0
-go get github.com/applyinnovations/ohip-sdk/go/rsv/v2@v2.0.0
+go get github.com/applyinnovations/ohip-sdk/go/oauth/v3@v3.0.0
+go get github.com/applyinnovations/ohip-sdk/go/crm/v3@v3.0.0
+go get github.com/applyinnovations/ohip-sdk/go/rsv/v3@v3.0.0
 ```
 
 ```go
 import (
-	crm "github.com/applyinnovations/ohip-sdk/go/crm/v2"
+	crm "github.com/applyinnovations/ohip-sdk/go/crm/v3"
 )
 
 configuration := crm.NewConfiguration()
@@ -72,7 +72,7 @@ client := crm.NewAPIClient(configuration)
 ```
 
 Go module tags are prefixed with their repository directory, for example
-`go/crm/v2.0.0`. Tags are immutable.
+`go/crm/v3.0.0`. Tags are immutable.
 
 ## Reproducible generation
 
@@ -87,7 +87,7 @@ Check out the pinned Oracle specifications:
 
 ```sh
 git clone https://github.com/oracle/hospitality-api-docs.git hospitality-api-docs
-git -C hospitality-api-docs checkout 6a002086e8fe645688adcb414a874737bee622ac
+git -C hospitality-api-docs checkout 52ca1813e050980441a8a9988d0ced3d209698e4
 npm ci
 npm run validate
 ```
@@ -96,9 +96,9 @@ npm run validate
 both SDKs from a clean tree, compiles TypeScript, tests custom middleware,
 tests every Go module, and installs the packed npm tarball into a clean fixture.
 
-The local patch reproduces two historical fixes to Oracle 24.4 specifications.
-Its resulting file hashes are recorded in `upstream.json`, so the build fails
-if the input or patch changes unexpectedly.
+The local patches make focused, reviewable corrections required to generate
+valid clients from Oracle 26.2. Their resulting file hashes are recorded in
+`upstream.json`, so the build fails if an input or patch changes unexpectedly.
 
 ## Versioning and releases
 
@@ -111,9 +111,10 @@ if the input or patch changes unexpectedly.
 
 Release automation publishes the TypeScript package through npm trusted
 publishing, creates an immutable GitHub release, and emits a correctly prefixed
-tag for every generated Go module. See [MIGRATION.md](./MIGRATION.md) for the
-2.0 migration, [the packaging design](./docs/packaging.md) for the decisions
-behind it, and [the release runbook](./docs/releasing.md) for initial setup.
+tag for every generated Go module. See [MIGRATION_V3.md](./MIGRATION_V3.md) for
+the 3.0 migration, [MIGRATION.md](./MIGRATION.md) for the historical 2.0
+migration, [the packaging design](./docs/packaging.md) for the decisions behind
+it, and [the release runbook](./docs/releasing.md) for initial setup.
 
 ## License
 

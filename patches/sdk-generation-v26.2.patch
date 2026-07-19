@@ -1,0 +1,466 @@
+diff --git a/rest-api-specs/property/v1/blk.json b/rest-api-specs/property/v1/blk.json
+--- a/rest-api-specs/property/v1/blk.json
++++ b/rest-api-specs/property/v1/blk.json
+@@ -52906,7 +52906,7 @@
+         },
+         "newBlock": {
+           "description": "Information about the new block.",
+-          "$ref": "#/definitions/newBlockDetailsType"
++          "$ref": "#/definitions/copiedBlockDetailsType"
+         },
+         "subBlocks": {
+           "type": "array",
+@@ -53035,7 +53035,7 @@
+         }
+       }
+     },
+-    "newBlockDetailsType": {
++    "copiedBlockDetailsType": {
+       "type": "object",
+       "description": "This is used when creating a copy of a block.",
+       "properties": {
+diff --git a/rest-api-specs/property/v1/evmcfg.json b/rest-api-specs/property/v1/evmcfg.json
+index 0f86325..6ae190a 100644
+--- a/rest-api-specs/property/v1/evmcfg.json
++++ b/rest-api-specs/property/v1/evmcfg.json
+@@ -9886,84 +9886,3 @@
+-    "/upsert/functionspaceLocations/{functionspaceLocationCode}": {
+-      "put": {
+-          "summary": "Create/Change function space locations",
+-          "description": "Use this API to create/update function space locations. <p><strong>OperationId:</strong>changeUpsertFunctionSpaceLocations</p>",
+-          "operationId": "changeUpsertFunctionSpaceLocations",
+-          "parameters": [
+-              {
+-                  "name": "functionspaceLocationCode",
+-                  "in": "path",
+-                  "required": true,
+-                  "type": "string",
+-                  "minLength": 1,
+-                  "maxLength": 2000,
+-                  "description": "Unique Code of function space locations."
+-              },
+-              {
+-                  "name": "functionSpaceLocationsToBeChanged",
+-                  "in": "body",
+-                  "required": true,
+-                  "description": "Request object for modifying function space location(s) for resort.",
+-                  "schema": {
+-                      "allOf": [
+-                          {
+-                              "$ref": "#/definitions/functionSpaceLocationsToBeChanged"
+-                          }
+-                      ]
+-                  }
+-              },
+-              {
+-                  "$ref": "#/parameters/authKey"
+-              }, {
+-                "$ref": "#/parameters/externalData"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-app-key"
+-              }, {
+-                "$ref": "#/parameters/x-request-id"
+-              }, {
+-                "$ref": "#/parameters/x-originating-application"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-hotelid"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-externalsystem"
+-              },
+-              {
+-                  "$ref": "#/parameters/Accept-Language"
+-              }
+-          ],
+-          "responses": {
+-              "200": {
+-                  "headers": {
+-                      "Content-Language": {
+-                          "type": "string",
+-                          "description": "Audience language",
+-                          "pattern": "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*",
+-                          "x-example": "en-GB"
+-                      },
+-                      "Location": {
+-                          "type": "string",
+-                          "description": "Location of newly created resource"
+-                      }
+-                  },
+-                  "description": "Response Body.",
+-                  "schema": {
+-                      "$ref": "#/definitions/status"
+-                  }
+-              }
+-          },
+-          "consumes": [
+-              "application/json;charset=UTF-8"
+-          ],
+-          "produces": [
+-              "application/json;charset=UTF-8"
+-          ],
+-          "tags": [
+-              "HotelConfig"
+-          ]
+-      }
+-    },
+     "/hotels/{hotelId}/eventCodes": {
+       "get": {
+         "summary": "Get Hotel Event Codes",
+diff --git a/rest-api-specs/property/v1/par.json b/rest-api-specs/property/v1/par.json
+index e283ca0..faaea4f 100644
+--- a/rest-api-specs/property/v1/par.json
++++ b/rest-api-specs/property/v1/par.json
+@@ -28714,7 +28714,7 @@
+         "postingInterval": {
+           "type": "array",
+           "items": {
+-            "$ref": "#/definitions/ratePostingInterval"
++            "$ref": "#/definitions/ratePostingIntervalEnum"
+           },
+           "description": "Optional posting interval filter. When nothing is provided in this filter then only Nightly rates will be returned"
+         }
+diff --git a/rest-api-specs/property/v1/rsv.json b/rest-api-specs/property/v1/rsv.json
+index 84935c9..fd2941d 100644
+--- a/rest-api-specs/property/v1/rsv.json
++++ b/rest-api-specs/property/v1/rsv.json
+@@ -9177,8 +9177,7 @@
+           "application/json;charset=UTF-8"
+         ],
+         "tags": [
+-          "Reservation",
+-          "PackageCategory"
++          "Reservation"
+         ]
+       }
+     },
+diff --git a/rest-api-specs/property/v1/blkasync.json b/rest-api-specs/property/v1/blkasync.json
+index 63ab45e..c604364 100644
+--- a/rest-api-specs/property/v1/blkasync.json
++++ b/rest-api-specs/property/v1/blkasync.json
+@@ -22725,7 +22725,7 @@
+                 },
+                 "newBlock": {
+                     "description": "Information about the new block.",
+-                    "$ref": "#/definitions/newBlockDetailsType"
++                    "$ref": "#/definitions/copiedBlockDetailsType"
+                 },
+                 "subBlocks": {
+                     "type": "array",
+@@ -22885,7 +22885,7 @@
+                 }
+             }
+         },
+-        "newBlockDetailsType": {
++        "copiedBlockDetailsType": {
+             "type": "object",
+             "description": "This is used when creating a copy of a block.",
+             "properties": {
+diff --git a/rest-api-specs/property/v1/evmcfg.json b/rest-api-specs/property/v1/evmcfg.json
+index 6ae190a0d..ce30b04c8 100644
+--- a/rest-api-specs/property/v1/evmcfg.json
++++ b/rest-api-specs/property/v1/evmcfg.json
+@@ -9802,87 +9802,6 @@
+         ]
+       }
+     },
+-    "/upsert/hotels/{hotelId}/eventCodes": {
+-      "put": {
+-          "summary": "Create/Change Hotel Event Codes",
+-          "description": "Use this API to create/update Hotel Event Codes. <p><strong>OperationId:</strong>changeUpsertEventCodes</p>",
+-          "operationId": "changeUpsertEventCodes",
+-          "parameters": [
+-              {
+-                  "name": "hotelId",
+-                  "in": "path",
+-                  "required": true,
+-                  "type": "string",
+-                  "minLength": 1,
+-                  "maxLength": 2000,
+-                  "description": "Unique ID of hotel."
+-              },
+-              {
+-                  "name": "eventCodesToBeChanged",
+-                  "in": "body",
+-                  "required": true,
+-                  "description": "Request object for modifying Event Codes for a hotel.",
+-                  "schema": {
+-                      "allOf": [
+-                          {
+-                              "$ref": "#/definitions/eventCodesToBeChanged"
+-                          }
+-                      ]
+-                  }
+-              },
+-              {
+-                  "$ref": "#/parameters/authKey"
+-              }, {
+-                "$ref": "#/parameters/externalData"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-app-key"
+-              }, {
+-                "$ref": "#/parameters/x-request-id"
+-              }, {
+-                "$ref": "#/parameters/x-originating-application"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-hotelid"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-externalsystem"
+-              },
+-              {
+-                  "$ref": "#/parameters/Accept-Language"
+-              }
+-          ],
+-          "responses": {
+-              "200": {
+-                  "headers": {
+-                      "Content-Language": {
+-                          "type": "string",
+-                          "description": "Audience language",
+-                          "pattern": "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*",
+-                          "x-example": "en-GB"
+-                      },
+-                      "Location": {
+-                          "type": "string",
+-                          "description": "Location of newly created resource"
+-                      }
+-                  },
+-                  "description": "Response Body.",
+-                  "schema": {
+-                      "$ref": "#/definitions/status"
+-                  }
+-              }
+-          },
+-          "consumes": [
+-              "application/json;charset=UTF-8"
+-          ],
+-          "produces": [
+-              "application/json;charset=UTF-8"
+-          ],
+-          "tags": [
+-              "HotelConfig"
+-          ]
+-      } 
+-    },
+     "/hotels/{hotelId}/eventCodes": {
+       "get": {
+         "summary": "Get Hotel Event Codes",
+@@ -15058,126 +14977,6 @@
+         ]
+       }
+     },
+-    "/upsert/itemClasses/{itemClassesCode}": {
+-      "put": {
+-        "summary": "Create/Update item classes",
+-        "description": "This API allows you to create/update existing Item Classes for a property. <p><strong>OperationId:</strong>putUpsertItemClasses</p>",
+-        "operationId": "putUpsertItemClasses",
+-        "parameters": [
+-          {
+-            "name": "itemClassesCode",
+-            "in": "path",
+-            "required": true,
+-            "type": "string",
+-            "minLength": 1,
+-            "maxLength": 2000,
+-            "description": "Unique Item Class Code"
+-          },
+-          {
+-            "name": "itemClasses",
+-            "in": "body",
+-            "required": true,
+-            "description": "Request object for modifying item class.",
+-            "schema": {
+-              "allOf": [
+-                {
+-                  "$ref": "#/definitions/itemClasses"
+-                }
+-              ]
+-            }
+-          },
+-          {
+-            "$ref": "#/parameters/authKey"
+-          },
+-          {
+-            "$ref": "#/parameters/externalData"
+-          },
+-          {
+-            "$ref": "#/parameters/x-app-key"
+-          },
+-          {
+-            "$ref": "#/parameters/x-request-id"
+-          },
+-          {
+-            "$ref": "#/parameters/x-originating-application"
+-          },
+-          {
+-            "$ref": "#/parameters/x-hotelid"
+-          },
+-          {
+-            "$ref": "#/parameters/x-externalsystem"
+-          },
+-          {
+-            "$ref": "#/parameters/Accept-Language"
+-          }
+-        ],
+-        "responses": {
+-          "200": {
+-            "headers": {
+-              "Content-Language": {
+-                "type": "string",
+-                "description": "Audience language",
+-                "pattern": "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*",
+-                "x-example": "en-GB"
+-              },
+-              "Location": {
+-                "type": "string",
+-                "description": "Location of newly created resource"
+-              }
+-            },
+-            "description": "Response Body.",
+-            "schema": {
+-              "$ref": "#/definitions/status"
+-            }
+-          },
+-          "400": {
+-            "$ref": "#/responses/400"
+-          },
+-          "401": {
+-            "$ref": "#/responses/401"
+-          },
+-          "403": {
+-            "$ref": "#/responses/403"
+-          },
+-          "404": {
+-            "$ref": "#/responses/404"
+-          },
+-          "405": {
+-            "$ref": "#/responses/405"
+-          },
+-          "406": {
+-            "$ref": "#/responses/406"
+-          },
+-          "413": {
+-            "$ref": "#/responses/413"
+-          },
+-          "414": {
+-            "$ref": "#/responses/414"
+-          },
+-          "415": {
+-            "$ref": "#/responses/415"
+-          },
+-          "500": {
+-            "$ref": "#/responses/500"
+-          },
+-          "502": {
+-            "$ref": "#/responses/502"
+-          },
+-          "503": {
+-            "$ref": "#/responses/503"
+-          }
+-        },
+-        "consumes": [
+-          "application/json;charset=UTF-8"
+-        ],
+-        "produces": [
+-          "application/json;charset=UTF-8"
+-        ],
+-        "tags": [
+-          "ResourceConfig"
+-        ]
+-      }
+-    },
+     "/itemPools": {
+       "post": {
+         "summary": "Create Item Pools",
+@@ -15409,87 +15208,6 @@
+         ]
+       }
+     },
+-    "/upsert/itemPools/{itemPoolsCode}": {
+-      "post": {
+-          "summary": "Create/Change Item Pools",
+-          "description": "Create/Change/update an Item Pool that is already configured for a property. <p><strong>OperationId:</strong>putUpsertItemPools</p>",
+-          "operationId": "putUpsertItemPools",
+-          "parameters": [
+-              {
+-                  "name": "itemPoolsCode",
+-                  "in": "path",
+-                  "required": true,
+-                  "type": "string",
+-                  "minLength": 1,
+-                  "maxLength": 2000,
+-                  "description": "Unique Item Pool code"
+-              },
+-              {
+-                  "name": "itemPools",
+-                  "in": "body",
+-                  "required": true,
+-                  "description": "Request object which holds modified Item Pools.",
+-                  "schema": {
+-                      "allOf": [
+-                          {
+-                              "$ref": "#/definitions/itemPools"
+-                          }
+-                      ]
+-                  }
+-              },
+-              {
+-                  "$ref": "#/parameters/authKey"
+-              }, {
+-                "$ref": "#/parameters/externalData"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-app-key"
+-              }, {
+-                "$ref": "#/parameters/x-request-id"
+-              }, {
+-                "$ref": "#/parameters/x-originating-application"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-hotelid"
+-              },
+-              {
+-                  "$ref": "#/parameters/x-externalsystem"
+-              },
+-              {
+-                  "$ref": "#/parameters/Accept-Language"
+-              }
+-          ],
+-          "responses": {
+-              "201": {
+-                  "headers": {
+-                      "Content-Language": {
+-                          "type": "string",
+-                          "description": "Audience language",
+-                          "pattern": "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*",
+-                          "x-example": "en-GB"
+-                      },
+-                      "Location": {
+-                          "type": "string",
+-                          "description": "Location of newly created resource"
+-                      }
+-                  },
+-                  "description": "HATEOAS links which help the consumer to navigate to resources",
+-                  "schema": {
+-                      "$ref": "#/definitions/status"
+-                  }
+-              }
+-          },
+-          "consumes": [
+-              "application/json;charset=UTF-8"
+-          ],
+-          "produces": [
+-              "application/json;charset=UTF-8"
+-          ],
+-          "tags": [
+-              "ResourceConfig"
+-          ]
+-      }
+-    },
+     "/mealTypes": {
+       "get": {
+         "summary": "Get Meal Types",

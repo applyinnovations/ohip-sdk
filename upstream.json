@@ -1,18 +1,22 @@
 {
   "$schema": "./upstream.schema.json",
   "repository": "https://github.com/oracle/hospitality-api-docs.git",
-  "release": "24.4",
-  "ref": "v24.4",
-  "commit": "6a002086e8fe645688adcb414a874737bee622ac",
-  "specDirectory": "rest-api-specs/property",
+  "release": "26.2",
+  "ref": "26.2",
+  "commit": "52ca1813e050980441a8a9988d0ced3d209698e4",
+  "specDirectory": "rest-api-specs/property/v1",
   "patches": [
-    "patches/oracle-hospitality-api-docs-v24.4.patch",
-    "patches/sdk-generation-v24.4.patch"
+    "patches/oracle-hospitality-api-docs-v26.2.patch",
+    "patches/sdk-generation-v26.2.patch"
   ],
   "patchedFiles": {
-    "rest-api-specs/property/blk.json": "8fe6ad34be5c7f4ebfe6718217d0332399c3a6b681ba86c392cae4424d4835be",
-    "rest-api-specs/property/rsvasync.json": "ae7414560d45f66e5e90479017d4016765b3103bfb1d44a8cd7a26edfa3da443",
-    "rest-api-specs/property/rtp.json": "cad19670bc4e4089c4bca2abe9134b8e8655d895895a4c8d9b738eecb75916d3"
+    "rest-api-specs/property/v1/blk.json": "ac52baced44db56c9e4b1ea681fda39810a4353c95e6cc3960ee85a7190068b8",
+    "rest-api-specs/property/v1/blkasync.json": "49599491e8b312f9021f5a65efc4d4c5040f14f4491dd5dab062f9681760db02",
+    "rest-api-specs/property/v1/evmcfg.json": "7f5db86f9411135d1ac5375b14a2dda3920b74ff047b06f690145532e1885fb5",
+    "rest-api-specs/property/v1/par.json": "76c606906d99a3280acb1cc6cb6b1b101d719e5f25c7a142f7bb113644ee78e9",
+    "rest-api-specs/property/v1/rsv.json": "88ab0c8fefb4ba4e32531c9e135d1e152d11baa8d2a862ff07c9152f2f462cce",
+    "rest-api-specs/property/v1/rsvasync.json": "9f9337eba60567bc09cbe85c9f63ee31351e42e42df95272cba63a6eba394210",
+    "rest-api-specs/property/v1/rtp.json": "a47e6e2a926f0a9b7acfb9865a49aa0927f64dfb0d5145525e64417bc5eb1377"
   },
   "legacyFork": {
     "repository": "https://github.com/applyinnovations/hospitality-api-docs.git",
