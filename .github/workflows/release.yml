@@ -97,7 +97,6 @@ jobs:
           tag_refs=()
           while IFS=$'\t' read -r module _module_path; do
             tag="go/$module/v$version"
-            git tag --annotate "$tag" --message "$tag"
             tag_refs+=("refs/tags/$tag")
           done < <(node scripts/list-go-modules.mjs)
 
@@ -123,6 +122,10 @@ jobs:
                 echo "Tag $ref exists without generated branch $branch; refusing a partial release." >&2
                 exit 1
               fi
+            done
+            for ref in "${tag_refs[@]}"; do
+              tag="${ref#refs/tags/}"
+              git tag --annotate "$tag" --message "$tag"
             done
             git push --atomic origin "HEAD:refs/heads/$branch" "${tag_refs[@]}"
           fi
