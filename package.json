@@ -1,6 +1,6 @@
 {
   "name": "@applyinnovations/ohip-sdk",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Generated TypeScript and Go clients for Oracle Hospitality Integration Platform APIs",
   "license": "ISC",
   "author": "Apply Innovations",
