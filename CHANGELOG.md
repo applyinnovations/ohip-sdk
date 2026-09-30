@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/applyinnovations/ohip-sdk/compare/v3.0.0...v3.0.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* accept string status in Oracle error responses ([#40](https://github.com/applyinnovations/ohip-sdk/issues/40)) ([56fa8e0](https://github.com/applyinnovations/ohip-sdk/commit/56fa8e07a0d914b6d039b52523fc825d70beee6d))
+
 ## [3.0.0](https://github.com/applyinnovations/ohip-sdk/compare/v2.0.1...v3.0.0) (2026-07-19)
 
 
