@@ -33,6 +33,85 @@ for (const entry of await readdir(path.join(root, 'go'), { withFileTypes: true }
   const oldImport = `github.com/applyinnovations/ohip-sdk/${entry.name}`;
   const newImport = `github.com/applyinnovations/ohip-sdk/go/${entry.name}/${moduleMajorVersion}`;
   await writeFile(readmePath, readme.replaceAll(oldImport, newImport));
+
+  const exceptionDetailPath = path.join(moduleDir, 'model_exception_detail_type.go');
+  let exceptionDetail;
+  try {
+    exceptionDetail = await readFile(exceptionDetailPath, 'utf8');
+  } catch (error) {
+    if (error.code === 'ENOENT') continue;
+    throw error;
+  }
+
+  const jsonImport = '\t"encoding/json"\n';
+  const marshalFunction = 'func (o ExceptionDetailType) MarshalJSON() ([]byte, error) {';
+  if (!exceptionDetail.includes(jsonImport) || !exceptionDetail.includes(marshalFunction)) {
+    throw new Error(`Unexpected ExceptionDetailType output in go/${entry.name}.`);
+  }
+
+  const normalizeStatus = `func normalizeExceptionDetailStatus(data []byte) ([]byte, error) {
+\tvar fields map[string]json.RawMessage
+\tif err := json.Unmarshal(data, &fields); err != nil {
+\t\treturn nil, err
+\t}
+
+\tencodedStatus, ok := fields["status"]
+\tif !ok || string(encodedStatus) == "null" {
+\t\treturn data, nil
+\t}
+
+\tvar status int32
+\tif err := json.Unmarshal(encodedStatus, &status); err == nil {
+\t\treturn data, nil
+\t}
+
+\tvar stringStatus string
+\tif err := json.Unmarshal(encodedStatus, &stringStatus); err != nil {
+\t\treturn nil, err
+\t}
+\tparsedStatus, err := strconv.ParseInt(stringStatus, 10, 32)
+\tif err != nil {
+\t\treturn nil, err
+\t}
+\tfields["status"] = json.RawMessage(strconv.FormatInt(parsedStatus, 10))
+\treturn json.Marshal(fields)
+}`;
+  const generatedUnmarshal =
+    'func (o *ExceptionDetailType) UnmarshalJSON(bytes []byte) (err error) {';
+
+  exceptionDetail = exceptionDetail.replace(
+    jsonImport,
+    `${jsonImport}\t"strconv"\n`,
+  );
+  if (exceptionDetail.includes(generatedUnmarshal)) {
+    exceptionDetail = exceptionDetail.replace(
+      generatedUnmarshal,
+      `${normalizeStatus}
+
+${generatedUnmarshal}
+\tbytes, err = normalizeExceptionDetailStatus(bytes)
+\tif err != nil {
+\t\treturn err
+\t}`,
+    );
+  } else {
+    exceptionDetail = exceptionDetail.replace(
+      marshalFunction,
+      `${normalizeStatus}
+
+func (o *ExceptionDetailType) UnmarshalJSON(data []byte) error {
+\tnormalized, err := normalizeExceptionDetailStatus(data)
+\tif err != nil {
+\t\treturn err
+\t}
+\ttype exceptionDetailTypeAlias ExceptionDetailType
+\treturn json.Unmarshal(normalized, (*exceptionDetailTypeAlias)(o))
 }
 
-console.log('Applied custom Go OAuth middleware.');
+${marshalFunction}`,
+    );
+  }
+  await writeFile(exceptionDetailPath, exceptionDetail);
+}
+
+console.log('Applied custom Go OAuth middleware and Oracle error decoding.');
