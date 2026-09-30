@@ -1,0 +1,38 @@
+package {{PACKAGE}}
+
+import (
+	"encoding/json"
+	"testing"
+)
+
+func TestExceptionDetailTypeUnmarshalStatus(t *testing.T) {
+	tests := []struct {
+		name  string
+		input string
+	}{
+		{name: "number", input: `{"type":"about:blank","status":400,"title":"Bad Request"}`},
+		{name: "numeric string", input: `{"type":"about:blank","status":"400","title":"Bad Request"}`},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			var detail ExceptionDetailType
+			if err := json.Unmarshal([]byte(test.input), &detail); err != nil {
+				t.Fatalf("unmarshal Oracle error: %v", err)
+			}
+			if detail.Status == nil || *detail.Status != 400 {
+				t.Fatalf("expected status 400, got %v", detail.Status)
+			}
+			if detail.GetTitle() != "Bad Request" {
+				t.Fatalf("expected title to be preserved, got %q", detail.GetTitle())
+			}
+		})
+	}
+}
+
+func TestExceptionDetailTypeUnmarshalRejectsInvalidStatus(t *testing.T) {
+	var detail ExceptionDetailType
+	if err := json.Unmarshal([]byte(`{"type":"about:blank","title":"Bad Request","status":"not-a-number"}`), &detail); err == nil {
+		t.Fatal("expected a non-numeric status to be rejected")
+	}
+}

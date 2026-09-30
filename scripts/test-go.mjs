@@ -1,4 +1,4 @@
-import { cp, readdir, rm } from 'node:fs/promises';
+import { cp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -17,6 +17,30 @@ if (moduleNames.length === 0) throw new Error('No generated Go modules found.');
 
 const oauthTest = path.join(goRoot, 'oauth', 'authentication_middleware_test.go');
 await cp(path.join(root, 'test', 'go', 'authentication_middleware_test.go'), oauthTest);
+const exceptionDetailTestTemplate = await readFile(
+  path.join(root, 'test', 'go', 'exception_detail_type_test.go.tmpl'),
+  'utf8',
+);
+const exceptionDetailTests = [];
+for (const name of moduleNames) {
+  const moduleDir = path.join(goRoot, name);
+  const entries = await readdir(moduleDir);
+  if (!entries.includes('model_exception_detail_type.go')) continue;
+
+  const model = await readFile(
+    path.join(moduleDir, 'model_exception_detail_type.go'),
+    'utf8',
+  );
+  const packageName = model.match(/^package (\w+)$/m)?.[1];
+  if (!packageName) throw new Error(`Unable to determine package for go/${name}.`);
+
+  const testPath = path.join(moduleDir, 'exception_detail_type_test.go');
+  await writeFile(
+    testPath,
+    exceptionDetailTestTemplate.replace('{{PACKAGE}}', packageName),
+  );
+  exceptionDetailTests.push(testPath);
+}
 const failures = [];
 
 try {
@@ -41,7 +65,10 @@ try {
     }
   }
 } finally {
-  await rm(oauthTest, { force: true });
+  await Promise.all([
+    rm(oauthTest, { force: true }),
+    ...exceptionDetailTests.map((testPath) => rm(testPath, { force: true })),
+  ]);
 }
 
 if (failures.length > 0) {
