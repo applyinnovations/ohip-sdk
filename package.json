@@ -75,8 +75,8 @@
     "validate": "npm run prepare:release && npm test && npm run test:go && npm run pack:check"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "2.39.1",
-    "@types/node": "22.15.3",
-    "typescript": "5.8.3"
+    "@openapitools/openapi-generator-cli": "2.41.0",
+    "@types/node": "26.6.3",
+    "typescript": "7.0.2"
   }
 }
