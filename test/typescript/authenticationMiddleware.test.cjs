@@ -144,9 +144,14 @@ function sendJson(response, status, body) {
   response.end(JSON.stringify(body));
 }
 
+let tokenGeneration = 0;
+
 function sendToken(response) {
   sendJson(response, 200, {
-    access_token: token({ exp: Math.floor(Date.now() / 1000) + 3600 }),
+    access_token: token({
+      exp: Math.floor(Date.now() / 1000) + 3600,
+      generation: ++tokenGeneration,
+    }),
     expires_in: 3600,
     token_type: 'Bearer',
   });
@@ -228,7 +233,9 @@ for (const grantType of [GrantTypeEnum.password, GrantTypeEnum.client_credential
       assert.equal(fixture.requests[0].form.get('username'), 'synthetic-first');
       assert.equal(fixture.requests[1].form.get('username'), 'synthetic-second');
       await fixture.provider.renewCredentials({ retryCount: 0 });
+      assert.equal(fixture.requests.length, 3);
       assert.equal(fixture.requests[2].form.get('username'), 'synthetic-second');
+      assert.equal(fixture.provider.authenticating, false);
     }
   });
 }
