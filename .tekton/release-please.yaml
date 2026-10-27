@@ -1,0 +1,115 @@
+# On each push to main, Release Please (the CLI the GitHub Action wrapped)
+# creates the GitHub release and v* tag for a merged release PR, then opens or
+# updates the next release PR. The tag push starts .tekton/release.yaml.
+# Only the release-please step holds the Pipelines-as-Code App token; it runs
+# the CLI pinned by scripts/ci/release-please/package-lock.json, never the SDK.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: ohip-sdk-release-please-
+  annotations:
+    pipelinesascode.tekton.dev/on-event: '[push]'
+    pipelinesascode.tekton.dev/on-target-branch: '[main]'
+    pipelinesascode.tekton.dev/target-namespace: tekton-buildkit
+    pipelinesascode.tekton.dev/cancel-in-progress: 'false'
+    pipelinesascode.tekton.dev/max-keep-runs: '5'
+  labels:
+    app.kubernetes.io/part-of: ci
+    tekton.dev/pipeline: ohip-sdk-release-please
+spec:
+  params:
+    - name: revision
+      value: '{{ revision }}'
+  taskRunTemplate:
+    serviceAccountName: default
+    podTemplate:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      nodeSelector:
+        storage.xlab.now/fast-local: 'true'
+  timeouts:
+    pipeline: 20m
+  pipelineSpec:
+    params:
+      - name: revision
+        type: string
+    workspaces:
+      - name: source
+      - name: git-auth
+    tasks:
+      - name: clone
+        timeout: 5m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v1}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: '$(params.revision)'}
+          - {name: expectedCommitSha, value: '$(params.revision)'}
+          - name: sparseCheckoutPatterns
+            value: /scripts/ci/release-please/
+          - {name: outputOwnerUid, value: '1000'}
+          - {name: outputOwnerGid, value: '1000'}
+        workspaces:
+          - {name: output, workspace: source}
+          - {name: basic-auth, workspace: git-auth}
+      - name: release-please
+        timeout: 10m
+        runAfter: [clone]
+        workspaces:
+          - {name: source, workspace: source}
+          - {name: git-auth, workspace: git-auth}
+        taskSpec:
+          workspaces:
+            - name: source
+            - name: git-auth
+              readOnly: true
+          steps:
+            - name: release-please
+              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+              workingDir: $(workspaces.source.path)/scripts/ci/release-please
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 200m, memory: 256Mi}
+                limits: {cpu: '1', memory: 1Gi}
+              env:
+                - {name: HOME, value: /tmp}
+                - {name: TOKEN_FILE, value: $(workspaces.git-auth.path)/git-provider-token}
+              script: |
+                #!/bin/sh
+                set -eu
+                npm ci --ignore-scripts --no-audit --no-fund --cache /tmp/npm-cache
+                token="$(cat "${TOKEN_FILE}")"
+                for command in github-release release-pr; do
+                  ./node_modules/.bin/release-please "${command}" \
+                    --token="${token}" \
+                    --repo-url=applyinnovations/ohip-sdk \
+                    --target-branch=main \
+                    --config-file=release-please-config.json \
+                    --manifest-file=.release-please-manifest.json
+                done
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 1Gi
+    - name: git-auth
+      secret:
+        secretName: '{{ git_auth_secret }}'

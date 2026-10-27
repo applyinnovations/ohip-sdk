@@ -1,0 +1,111 @@
+# Check "tekton-xlab / ohip-sdk-ci-": regenerate, test and pack both SDKs on
+# pull requests to main and on main itself. Sandboxed Nix, no credentials.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: ohip-sdk-ci-
+  annotations:
+    pipelinesascode.tekton.dev/on-event: '[pull_request, push]'
+    pipelinesascode.tekton.dev/on-target-branch: '[main]'
+    pipelinesascode.tekton.dev/target-namespace: tekton-buildkit
+    pipelinesascode.tekton.dev/cancel-in-progress: 'true'
+    pipelinesascode.tekton.dev/max-keep-runs: '5'
+  labels:
+    app.kubernetes.io/part-of: ci
+    tekton.dev/pipeline: ohip-sdk-ci
+spec:
+  params:
+    - name: revision
+      value: '{{ revision }}'
+  taskRunTemplate:
+    serviceAccountName: default
+    podTemplate:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      nodeSelector:
+        storage.xlab.now/fast-local: 'true'
+  taskRunSpecs:
+    - pipelineTaskName: validate
+      podTemplate:
+        hostUsers: false
+    - pipelineTaskName: publish-cache
+      serviceAccountName: nix-cache-publisher
+  timeouts:
+    pipeline: 60m
+  pipelineSpec:
+    params:
+      - name: revision
+        type: string
+    workspaces:
+      - name: source
+      - name: git-auth
+      - name: nix-cache-export
+    tasks:
+      - name: clone
+        timeout: 10m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v1}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: '$(params.revision)'}
+          - {name: expectedCommitSha, value: '$(params.revision)'}
+        workspaces:
+          - {name: output, workspace: source}
+          - {name: basic-auth, workspace: git-auth}
+      - name: validate
+        timeout: 45m
+        runAfter: [clone]
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-v1}
+            - {name: namespace, value: tekton-buildkit}
+        params:
+          - name: SCRIPT
+            value: |
+              git config --global --add safe.directory '*'
+              nix develop --command scripts/ci/validate.sh
+        workspaces:
+          - {name: source, workspace: source}
+          - {name: nix-cache-export, workspace: nix-cache-export}
+    # Push runs publish the Nix task's cache export to the shared Nix cache.
+    finally:
+      - name: publish-cache
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-cache-publish-v1}
+            - {name: namespace, value: tekton-pipelines}
+        workspaces:
+          - {name: nix-cache-export, workspace: nix-cache-export}
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 4Gi
+    - name: git-auth
+      secret:
+        secretName: '{{ git_auth_secret }}'
+    # The Nix task's cache export (store paths the Nix cache lacks, written
+    # only on push and scheduled runs) for publish-cache. Each Nix task keeps
+    # its own store.
+    - name: nix-cache-export
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 10Gi

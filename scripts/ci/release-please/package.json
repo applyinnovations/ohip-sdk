@@ -1,0 +1,8 @@
+{
+  "name": "ohip-sdk-release-please",
+  "private": true,
+  "description": "Pins the Release Please CLI and its dependencies for .tekton/release-please.yaml.",
+  "dependencies": {
+    "release-please": "17.11.2"
+  }
+}
