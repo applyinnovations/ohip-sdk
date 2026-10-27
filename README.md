@@ -79,9 +79,11 @@ Go module tags are prefixed with their repository directory, for example
 Requirements:
 
 - Node.js 22
-- npm 11.5.1 or newer for publishing
 - Java 21
 - Go 1.25
+
+`nix develop` provides all three, as CI does. `scripts/ci/validate.sh` runs the
+same steps as below.
 
 Check out the pinned Oracle specifications:
 

@@ -1,0 +1,274 @@
+# Daily, from the xlab-deployments nightly-cron-trigger via the PaC incoming
+# webhook: compare upstream.json with Oracle's latest hospitality-api-docs
+# release. A candidate that passes full validation is proposed as a pull request
+# on automation/oracle-<release>; one that fails opens an issue. The check runs
+# sandboxed with no credentials; only the publish task holds the App token.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: ohip-sdk-upstream-watch-
+  annotations:
+    pipelinesascode.tekton.dev/on-event: '[incoming]'
+    pipelinesascode.tekton.dev/on-target-branch: '[main]'
+    pipelinesascode.tekton.dev/target-namespace: tekton-buildkit
+    pipelinesascode.tekton.dev/max-keep-runs: '5'
+  labels:
+    app.kubernetes.io/part-of: ci
+    tekton.dev/pipeline: ohip-sdk-upstream-watch
+spec:
+  params:
+    - name: revision
+      value: '{{ revision }}'
+  taskRunTemplate:
+    serviceAccountName: default
+    podTemplate:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      nodeSelector:
+        storage.xlab.now/fast-local: 'true'
+  taskRunSpecs:
+    - pipelineTaskName: candidate
+      podTemplate:
+        hostUsers: false
+    - pipelineTaskName: publish-cache
+      serviceAccountName: nix-cache-publisher
+  timeouts:
+    pipeline: 55m
+  pipelineSpec:
+    params:
+      - name: revision
+        type: string
+    workspaces:
+      - name: source
+      - name: git-auth
+      - name: nix-store
+      - name: artifacts
+    tasks:
+      - name: clone
+        timeout: 10m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v2}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: '$(params.revision)'}
+          - {name: expectedCommitSha, value: '$(params.revision)'}
+        workspaces:
+          - {name: output, workspace: source}
+          - {name: basic-auth, workspace: git-auth}
+      - name: candidate
+        timeout: 40m
+        runAfter: [clone]
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-run-v2}
+            - {name: namespace, value: tekton-buildkit}
+        params:
+          - name: SCRIPT
+            value: |
+              git config --global --add safe.directory '*'
+              nix develop --command scripts/ci/upstream-candidate.sh "$CI_ARTIFACTS_PATH"
+        workspaces:
+          - {name: source, workspace: source}
+          - {name: nix-store, workspace: nix-store}
+          - {name: artifacts, workspace: artifacts}
+      - name: publish
+        timeout: 10m
+        runAfter: [candidate]
+        params:
+          - {name: run, value: '$(context.pipelineRun.name)'}
+          - {name: revision, value: '$(params.revision)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: git-auth, workspace: git-auth}
+        taskSpec:
+          params:
+            - name: run
+              type: string
+            - name: revision
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: git-auth
+              readOnly: true
+          steps:
+            # Push the candidate branch from a fresh repository, so nothing the
+            # build wrote runs with the token. Unchanged candidates are not
+            # re-pushed.
+            - name: push-branch
+              image: docker.io/nixos/nix:2.34.0@sha256:b9c9611c8530fa8049a1215b20638536e1e71dcaf85212e47845112caf3adeea
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 200m, memory: 256Mi}
+                limits: {cpu: '1', memory: 1Gi}
+              env:
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: GIT_CREDENTIALS, value: $(workspaces.git-auth.path)/.git-credentials}
+                - {name: REVISION, value: $(params.revision)}
+              script: |
+                #!/usr/bin/env bash
+                set -euo pipefail
+                [ "$(cat "$ARTIFACTS/status")" = passed ] || exit 0
+                release="$(cat "$ARTIFACTS/release")"
+                [[ "$release" =~ ^[0-9A-Za-z][0-9A-Za-z._-]*$ ]]
+                branch="automation/oracle-$release"
+                origin=https://github.com/applyinnovations/ohip-sdk.git
+                export HOME=/tmp/home
+                mkdir -p "$HOME"
+                git init --quiet --bare /tmp/repo
+                cd /tmp/repo
+                # The bundle's prerequisite: the main commit the check ran on.
+                git fetch --quiet --depth 1 "$origin" "$REVISION"
+                git fetch --quiet "$ARTIFACTS/update.bundle" "+refs/heads/$branch:refs/heads/$branch"
+                if git ls-remote --exit-code --heads "$origin" "$branch" >/dev/null; then
+                  git fetch --quiet --depth 1 "$origin" "+refs/heads/$branch:refs/remote-branch"
+                  if [ "$(git rev-parse "refs/heads/$branch^{tree}")" = "$(git rev-parse "refs/remote-branch^{tree}")" ]; then
+                    echo "$branch already holds this update."
+                    exit 0
+                  fi
+                fi
+                git -c credential.helper="store --file=$GIT_CREDENTIALS" \
+                  push --force "$origin" "refs/heads/$branch:refs/heads/$branch"
+            - name: open-pr-or-issue
+              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 100m, memory: 128Mi}
+                limits: {cpu: 500m, memory: 512Mi}
+              env:
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: TOKEN_FILE, value: $(workspaces.git-auth.path)/git-provider-token}
+                - {name: RUN_URL, value: 'https://tekton.xlab.now/#/namespaces/tekton-buildkit/pipelineruns/$(params.run)'}
+              script: |
+                #!/usr/bin/env node
+                // Passed: make sure a pull request is open for the candidate
+                // branch. Failed: make sure an issue is open for the release.
+                const fs = require('node:fs');
+                const read = (name) => fs.readFileSync(`${process.env.ARTIFACTS}/${name}`, 'utf8').trim();
+                const status = read('status');
+                if (status === 'current') {
+                  console.log(`upstream.json already pins Oracle ${read('ref')}.`);
+                  process.exit(0);
+                }
+                const [release, ref, commit] = [read('release'), read('ref'), read('commit')];
+                const owner = 'applyinnovations';
+                const api = `https://api.github.com/repos/${owner}/ohip-sdk`;
+                const headers = {
+                  authorization: `Bearer ${fs.readFileSync(process.env.TOKEN_FILE, 'utf8').trim()}`,
+                  accept: 'application/vnd.github+json',
+                  'x-github-api-version': '2022-11-28',
+                };
+                async function github(path, init = {}) {
+                  const response = await fetch(`${api}${path}`, { ...init, headers });
+                  if (!response.ok) throw new Error(`${init.method || 'GET'} ${path}: ${response.status} ${await response.text()}`);
+                  return response.json();
+                }
+                (async () => {
+                  if (status === 'passed') {
+                    const branch = `automation/oracle-${release}`;
+                    const open = await github(`/pulls?state=open&head=${owner}:${encodeURIComponent(branch)}`);
+                    if (open.length > 0) {
+                      console.log(`Pull request already open: ${open[0].html_url}`);
+                      return;
+                    }
+                    const title = `feat(upstream): update Oracle specs to ${release}`;
+                    const pull = await github('/pulls', {
+                      method: 'POST',
+                      body: JSON.stringify({
+                        title,
+                        head: branch,
+                        base: 'main',
+                        body: [
+                          `Updates the pinned Oracle Hospitality API source to \`${ref}\` at \`${commit}\`.`,
+                          '',
+                          'The full SDK generation, TypeScript tests, all Go module tests, and npm package smoke tests passed. Review generated API compatibility and apply the appropriate release label before merging.',
+                        ].join('\n'),
+                      }),
+                    });
+                    console.log(`Opened ${pull.html_url}`);
+                    return;
+                  }
+                  const title = `Oracle Hospitality API ${release} needs manual migration`;
+                  const issues = await github('/issues?state=open&per_page=100');
+                  const existing = issues.find((issue) => !issue.pull_request && issue.title === title);
+                  if (existing) {
+                    console.log(`Issue already open: ${existing.html_url}`);
+                    return;
+                  }
+                  const issue = await github('/issues', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                      title,
+                      body: [
+                        `The scheduled update check found ${ref} at \`${commit}\`,`,
+                        'but the existing patches or generated SDK validation failed.',
+                        '',
+                        `See pipeline run: ${process.env.RUN_URL}`,
+                      ].join('\n'),
+                    }),
+                  });
+                  console.log(`Opened ${issue.html_url}`);
+                })().catch((error) => {
+                  console.error(error.message);
+                  process.exit(1);
+                });
+    # Publish this run's store to the shared Nix cache.
+    finally:
+      - name: publish-cache
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-cache-publish}
+            - {name: namespace, value: tekton-pipelines}
+        workspaces:
+          - {name: nix-store, workspace: nix-store}
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 4Gi
+    - name: git-auth
+      secret:
+        secretName: '{{ git_auth_secret }}'
+    - name: nix-store
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 20Gi
+    - name: artifacts
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 1Gi

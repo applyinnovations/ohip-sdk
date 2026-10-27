@@ -1,0 +1,387 @@
+# Publishes a release when its v* tag is pushed (Release Please creates it).
+# The build runs sandboxed with no credentials and hands the publish tasks only
+# data: the npm tarball and a Git bundle of the generated Go modules. Each
+# publish task holds one credential and runs no repository code. Every step is
+# idempotent: re-run the failed check on the tag's commit to retry. Existing
+# Go refs are accepted only when they match this build; a published npm
+# version is skipped.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: ohip-sdk-release-
+  annotations:
+    pipelinesascode.tekton.dev/on-event: '[push]'
+    pipelinesascode.tekton.dev/on-target-branch: '[refs/tags/v*]'
+    pipelinesascode.tekton.dev/target-namespace: tekton-buildkit
+    pipelinesascode.tekton.dev/cancel-in-progress: 'false'
+    pipelinesascode.tekton.dev/max-keep-runs: '10'
+  labels:
+    app.kubernetes.io/part-of: ci
+    tekton.dev/pipeline: ohip-sdk-release
+spec:
+  params:
+    - name: revision
+      value: '{{ revision }}'
+    - name: release_tag
+      value: '{{ git_tag }}'
+  taskRunTemplate:
+    serviceAccountName: default
+    podTemplate:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      nodeSelector:
+        storage.xlab.now/fast-local: 'true'
+  taskRunSpecs:
+    - pipelineTaskName: build
+      podTemplate:
+        hostUsers: false
+    - pipelineTaskName: publish-cache
+      serviceAccountName: nix-cache-publisher
+  # The PaC App token expires an hour after the run starts; the Go and GitHub
+  # release steps must finish before then.
+  timeouts:
+    pipeline: 55m
+  pipelineSpec:
+    params:
+      - name: revision
+        type: string
+      - name: release_tag
+        type: string
+    workspaces:
+      - name: source
+      - name: git-auth
+      - name: nix-store
+      - name: artifacts
+      - name: npm-token
+    tasks:
+      # Full commit history (no blobs) so the build can prove the tag is on main.
+      - name: clone
+        timeout: 10m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v2}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: '$(params.revision)'}
+          - {name: expectedCommitSha, value: '$(params.revision)'}
+          - {name: depth, value: '0'}
+          - name: additionalRefspecs
+            value: |
+              +refs/heads/main:refs/remotes/origin/main
+              +refs/tags/$(params.release_tag):refs/tags/$(params.release_tag)
+        workspaces:
+          - {name: output, workspace: source}
+          - {name: basic-auth, workspace: git-auth}
+      - name: build
+        timeout: 40m
+        runAfter: [clone]
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-run-v2}
+            - {name: namespace, value: tekton-buildkit}
+        params:
+          - name: SCRIPT
+            value: |
+              git config --global --add safe.directory '*'
+              tag='$(params.release_tag)'
+              revision='$(params.revision)'
+              # Checked before any repository code runs. A tag alone is not
+              # trusted: only a vX.Y.Z tag on a commit already on main publishes.
+              [[ "$tag" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]] || {
+                echo "release tag '$tag' is not vMAJOR.MINOR.PATCH" >&2; exit 2; }
+              [ "$(git rev-parse "refs/tags/$tag^{commit}")" = "$revision" ] || {
+                echo "tag $tag does not point at $revision" >&2; exit 2; }
+              git merge-base --is-ancestor "$revision" refs/remotes/origin/main || {
+                echo "$revision is not on main" >&2; exit 2; }
+              nix develop --command scripts/ci/release-build.sh "$tag" "$CI_ARTIFACTS_PATH"
+        workspaces:
+          - {name: source, workspace: source}
+          - {name: nix-store, workspace: nix-store}
+          - {name: artifacts, workspace: artifacts}
+      - name: push-go-modules
+        timeout: 10m
+        runAfter: [build]
+        params:
+          - {name: tag, value: '$(params.release_tag)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: git-auth, workspace: git-auth}
+        taskSpec:
+          params:
+            - name: tag
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: git-auth
+              readOnly: true
+          steps:
+            - name: push
+              image: docker.io/nixos/nix:2.34.0@sha256:b9c9611c8530fa8049a1215b20638536e1e71dcaf85212e47845112caf3adeea
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 500m, memory: 512Mi}
+                limits: {cpu: '2', memory: 2Gi}
+              env:
+                - {name: TAG, value: $(params.tag)}
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: GIT_CREDENTIALS, value: $(workspaces.git-auth.path)/.git-credentials}
+              script: |
+                #!/usr/bin/env bash
+                # The GitHub release step of the former release.yml workflow:
+                # push generated/<tag> and every go/<module>/<tag> atomically,
+                # or accept them if they already exist with the same content.
+                set -euo pipefail
+                export HOME=/tmp/home
+                mkdir -p "$HOME"
+                [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+                version="${TAG#v}"
+                branch="generated/$TAG"
+                tag_refs=()
+                while read -r module_tag; do
+                  [[ "$module_tag" =~ ^go/[a-z0-9_-]+/v${version//./\\.}$ ]] || {
+                    echo "unexpected module tag '$module_tag'" >&2; exit 2; }
+                  tag_refs+=("refs/tags/$module_tag")
+                done < "$ARTIFACTS/go-tags"
+                [ "${#tag_refs[@]}" -gt 0 ]
+
+                # A fresh repository: no hooks or config from the build.
+                origin=https://github.com/applyinnovations/ohip-sdk.git
+                git init --quiet --bare /tmp/repo
+                cd /tmp/repo
+                # The bundle's prerequisite: the release commit.
+                git fetch --quiet --depth 1 "$origin" "+refs/tags/$TAG:refs/tags/$TAG"
+                refspecs=("+refs/heads/$branch:refs/heads/$branch")
+                for ref in "${tag_refs[@]}"; do refspecs+=("+$ref:$ref"); done
+                git fetch --quiet "$ARTIFACTS/go-modules.bundle" "${refspecs[@]}"
+                head="$(git rev-parse "refs/heads/$branch")"
+                [ "$(git rev-parse "$head^")" = "$(git rev-parse "$TAG^{commit}")" ] || {
+                  echo "$branch is not a single commit on $TAG" >&2; exit 2; }
+                for ref in "${tag_refs[@]}"; do
+                  [ "$(git rev-list -n 1 "$ref")" = "$head" ] || {
+                    echo "$ref does not point at $branch" >&2; exit 2; }
+                done
+
+                if git ls-remote --exit-code --heads "$origin" "$branch" >/dev/null; then
+                  git fetch --quiet "$origin" "+refs/heads/$branch:refs/remote-branch"
+                  if [ "$(git rev-parse "$head^{tree}")" != "$(git rev-parse "refs/remote-branch^{tree}")" ]; then
+                    echo "Existing $branch is not reproducible from this release." >&2
+                    exit 1
+                  fi
+                  expected="$(git rev-parse refs/remote-branch)"
+                  for ref in "${tag_refs[@]}"; do
+                    check_ref="refs/ohip-release-check/${ref#refs/tags/}"
+                    git fetch --quiet "$origin" "+$ref:$check_ref"
+                    if [ "$(git rev-list -n 1 "$check_ref")" != "$expected" ]; then
+                      echo "Existing tag $ref does not point to $branch." >&2
+                      exit 1
+                    fi
+                  done
+                  echo "The generated Go release already exists and matches this build."
+                else
+                  for ref in "${tag_refs[@]}"; do
+                    if git ls-remote --exit-code --tags "$origin" "$ref" >/dev/null; then
+                      echo "Tag $ref exists without $branch; refusing a partial release." >&2
+                      exit 1
+                    fi
+                  done
+                  git -c credential.helper="store --file=$GIT_CREDENTIALS" \
+                    push --atomic "$origin" "refs/heads/$branch:refs/heads/$branch" "${tag_refs[@]}"
+                fi
+      - name: publish-npm
+        timeout: 10m
+        runAfter: [push-go-modules]
+        params:
+          - {name: tag, value: '$(params.release_tag)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: npm-token, workspace: npm-token}
+        taskSpec:
+          params:
+            - name: tag
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: npm-token
+              readOnly: true
+          steps:
+            - name: publish
+              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 200m, memory: 256Mi}
+                limits: {cpu: '1', memory: 1Gi}
+              env:
+                - {name: TAG, value: $(params.tag)}
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: HOME, value: /tmp}
+                - {name: npm_config_cache, value: /tmp/npm-cache}
+                - {name: NPM_TOKEN_FILE, value: $(workspaces.npm-token.path)/token}
+              script: |
+                #!/bin/sh
+                # npm trusted publishing (OIDC) and provenance need GitHub-hosted
+                # runners, so this publishes with a granular access token.
+                set -eu
+                package=@applyinnovations/ohip-sdk
+                version="${TAG#v}"
+                tarball="$ARTIFACTS/applyinnovations-ohip-sdk-$version.tgz"
+                packed="$(tar -xzOf "$tarball" package/package.json \
+                  | node -e 'const p=JSON.parse(require("fs").readFileSync(0));console.log(p.name+"@"+p.version)')"
+                [ "$packed" = "$package@$version" ] || {
+                  echo "tarball is $packed, expected $package@$version" >&2; exit 2; }
+                if npm view "$package@$version" version >/dev/null 2>&1; then
+                  echo "$package@$version is already published."
+                  exit 0
+                fi
+                NPM_TOKEN="$(cat "$NPM_TOKEN_FILE")"
+                export NPM_TOKEN
+                printf '%s\n' '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > /tmp/.npmrc
+                npm publish "$tarball" --userconfig /tmp/.npmrc --access public \
+                  --provenance=false --ignore-scripts
+      - name: attach-npm-package
+        timeout: 5m
+        runAfter: [publish-npm]
+        params:
+          - {name: tag, value: '$(params.release_tag)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: git-auth, workspace: git-auth}
+        taskSpec:
+          params:
+            - name: tag
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: git-auth
+              readOnly: true
+          steps:
+            - name: attach
+              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 100m, memory: 128Mi}
+                limits: {cpu: 500m, memory: 512Mi}
+              env:
+                - {name: TAG, value: $(params.tag)}
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: TOKEN_FILE, value: $(workspaces.git-auth.path)/git-provider-token}
+              script: |
+                #!/usr/bin/env node
+                // Attach the npm tarball to the GitHub release, creating the
+                // release if it is missing; skip an asset that already exists.
+                const fs = require('node:fs');
+                const tag = process.env.TAG;
+                const name = `applyinnovations-ohip-sdk-${tag.slice(1)}.tgz`;
+                const file = fs.readFileSync(`${process.env.ARTIFACTS}/${name}`);
+                const api = 'https://api.github.com/repos/applyinnovations/ohip-sdk';
+                const headers = {
+                  authorization: `Bearer ${fs.readFileSync(process.env.TOKEN_FILE, 'utf8').trim()}`,
+                  accept: 'application/vnd.github+json',
+                  'x-github-api-version': '2022-11-28',
+                };
+                async function github(url, init = {}) {
+                  const response = await fetch(url, { ...init, headers: { ...headers, ...init.headers } });
+                  if (!response.ok) throw new Error(`${init.method || 'GET'} ${url}: ${response.status} ${await response.text()}`);
+                  return response.json();
+                }
+                (async () => {
+                  let release;
+                  const found = await fetch(`${api}/releases/tags/${tag}`, { headers });
+                  if (found.status === 404) {
+                    release = await github(`${api}/releases`, {
+                      method: 'POST',
+                      body: JSON.stringify({ tag_name: tag, name: tag }),
+                    });
+                  } else if (found.ok) {
+                    release = await found.json();
+                  } else {
+                    throw new Error(`release ${tag}: ${found.status} ${await found.text()}`);
+                  }
+                  if (release.assets.some((asset) => asset.name === name)) {
+                    console.log(`${name} is already attached to ${tag}.`);
+                    return;
+                  }
+                  const upload = release.upload_url.replace(/\{.*\}$/, '');
+                  await github(`${upload}?name=${encodeURIComponent(name)}`, {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/gzip' },
+                    body: file,
+                  });
+                  console.log(`Attached ${name} to ${release.html_url}`);
+                })().catch((error) => {
+                  console.error(error.message);
+                  process.exit(1);
+                });
+    # Publish this run's store to the shared Nix cache.
+    finally:
+      - name: publish-cache
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-cache-publish}
+            - {name: namespace, value: tekton-pipelines}
+        workspaces:
+          - {name: nix-store, workspace: nix-store}
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 4Gi
+    - name: git-auth
+      secret:
+        secretName: '{{ git_auth_secret }}'
+    - name: nix-store
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 20Gi
+    # Data only (tarball, Git bundle, tag list), handed from build to publish.
+    - name: artifacts
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 1Gi
+    - name: npm-token
+      secret:
+        secretName: ohip-sdk-npm-token
