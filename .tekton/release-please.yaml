@@ -45,7 +45,7 @@ spec:
           resolver: cluster
           params:
             - {name: kind, value: task}
-            - {name: name, value: git-clone-v2}
+            - {name: name, value: git-clone-v1}
             - {name: namespace, value: tekton-pipelines}
         params:
           - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}

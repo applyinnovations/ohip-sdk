@@ -52,7 +52,7 @@ spec:
     workspaces:
       - name: source
       - name: git-auth
-      - name: nix-store
+      - name: nix-cache-export
       - name: artifacts
       - name: npm-token
     tasks:
@@ -63,7 +63,7 @@ spec:
           resolver: cluster
           params:
             - {name: kind, value: task}
-            - {name: name, value: git-clone-v2}
+            - {name: name, value: git-clone-v1}
             - {name: namespace, value: tekton-pipelines}
         params:
           - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
@@ -84,7 +84,7 @@ spec:
           resolver: cluster
           params:
             - {name: kind, value: task}
-            - {name: name, value: nix-run-v2}
+            - {name: name, value: nix-v1}
             - {name: namespace, value: tekton-buildkit}
         params:
           - name: SCRIPT
@@ -103,7 +103,7 @@ spec:
               nix develop --command scripts/ci/release-build.sh "$tag" "$CI_ARTIFACTS_PATH"
         workspaces:
           - {name: source, workspace: source}
-          - {name: nix-store, workspace: nix-store}
+          - {name: nix-cache-export, workspace: nix-cache-export}
           - {name: artifacts, workspace: artifacts}
       - name: push-go-modules
         timeout: 10m
@@ -342,17 +342,17 @@ spec:
                   console.error(error.message);
                   process.exit(1);
                 });
-    # Publish this run's store to the shared Nix cache.
+    # Publish the Nix task's cache export to the shared Nix cache.
     finally:
       - name: publish-cache
         taskRef:
           resolver: cluster
           params:
             - {name: kind, value: task}
-            - {name: name, value: nix-cache-publish}
+            - {name: name, value: nix-cache-publish-v1}
             - {name: namespace, value: tekton-pipelines}
         workspaces:
-          - {name: nix-store, workspace: nix-store}
+          - {name: nix-cache-export, workspace: nix-cache-export}
   workspaces:
     - name: source
       volumeClaimTemplate:
@@ -365,14 +365,17 @@ spec:
     - name: git-auth
       secret:
         secretName: '{{ git_auth_secret }}'
-    - name: nix-store
+    # The Nix task's cache export (store paths the Nix cache lacks, written
+    # only on push and scheduled runs) for publish-cache. Each Nix task keeps
+    # its own store.
+    - name: nix-cache-export
       volumeClaimTemplate:
         spec:
           accessModes: [ReadWriteOnce]
           storageClassName: fast-local
           resources:
             requests:
-              storage: 20Gi
+              storage: 10Gi
     # Data only (tarball, Git bundle, tag list), handed from build to publish.
     - name: artifacts
       volumeClaimTemplate:
