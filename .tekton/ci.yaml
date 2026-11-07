@@ -1,4 +1,4 @@
-# Check "sdk-test": regenerate, test and pack both SDKs on
+# Check "tekton-xlab / sdk-test": regenerate, test and pack both SDKs on
 # pull requests to main and on main itself. Sandboxed Nix, no credentials.
 apiVersion: tekton.dev/v1
 kind: PipelineRun
