@@ -6,7 +6,7 @@
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
-  name: upstream-watch
+  generateName: upstream-watch-
   annotations:
     pipelinesascode.tekton.dev/on-event: '[incoming]'
     pipelinesascode.tekton.dev/on-target-branch: '[main]'
