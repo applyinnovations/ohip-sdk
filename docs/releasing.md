@@ -6,7 +6,7 @@ CI runs on the xlab Tekton cluster through Pipelines-as-Code (`.tekton/`);
 there are no GitHub Actions workflows. Runs always use `main`'s `.tekton/`, so
 a pull request cannot change its own checks.
 
-Protect `main`, require the `tekton-xlab / ohip-sdk-ci-` check, require review
+Protect `main`, require the `sdk-test` check, require review
 for release pull requests, and prevent tag deletion or updates for `v*` and
 `go/*` tags.
 
@@ -35,7 +35,7 @@ the GitHub release and its `vX.Y.Z` tag, and the tag push starts
 - generated branch `generated/vX.Y.Z`;
 - one immutable `go/<api>/vX.Y.Z` tag per Go module.
 
-If publishing is interrupted, re-run the failed `tekton-xlab / ohip-sdk-release-`
+If publishing is interrupted, re-run the failed `release`
 check on the tag's commit. Each step verifies existing Git trees, npm versions
 and release assets rather than replacing them.
 

@@ -1,9 +1,9 @@
-# Check "tekton-xlab / ohip-sdk-ci-": regenerate, test and pack both SDKs on
+# Check "sdk-test": regenerate, test and pack both SDKs on
 # pull requests to main and on main itself. Sandboxed Nix, no credentials.
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
-  generateName: ohip-sdk-ci-
+  name: sdk-test
   annotations:
     pipelinesascode.tekton.dev/on-event: '[pull_request, push]'
     pipelinesascode.tekton.dev/on-target-branch: '[main]'
