@@ -6,7 +6,7 @@
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
-  name: release-pr
+  generateName: ohip-sdk-release-please-
   annotations:
     pipelinesascode.tekton.dev/on-event: '[push]'
     pipelinesascode.tekton.dev/on-target-branch: '[main]'
