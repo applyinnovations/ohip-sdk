@@ -1,0 +1,352 @@
+# Publishes a release when its v* tag is pushed (Release Please creates it).
+# The build runs sandboxed with no credentials and hands the publish tasks only
+# data: the npm tarball and a Git bundle of the generated Go modules. Each
+# publish task holds one credential and runs only scripts/ci from its own
+# checkout of main (ci-scripts), never the build's workspace. Before any of
+# the tag's code runs, verify-tag checks it with main's check-release-tag.sh.
+# Every step is idempotent: re-run the failed check on the tag's commit to
+# retry. Existing Go refs are accepted only when they match this build; a
+# published npm version is skipped.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: release-
+  annotations:
+    pipelinesascode.tekton.dev/on-event: '[push]'
+    pipelinesascode.tekton.dev/on-target-branch: '[refs/tags/v*]'
+    pipelinesascode.tekton.dev/target-namespace: tekton-buildkit
+    pipelinesascode.tekton.dev/cancel-in-progress: 'false'
+    pipelinesascode.tekton.dev/max-keep-runs: '10'
+  labels:
+    app.kubernetes.io/part-of: ci
+    tekton.dev/pipeline: ohip-sdk-release
+spec:
+  params:
+    - name: revision
+      value: '{{ revision }}'
+    - name: release_tag
+      value: '{{ git_tag }}'
+  taskRunTemplate:
+    serviceAccountName: default
+    podTemplate:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      nodeSelector:
+        storage.xlab.now/fast-local: 'true'
+  taskRunSpecs:
+    - pipelineTaskName: build
+      podTemplate:
+        hostUsers: false
+    - pipelineTaskName: publish-cache
+      serviceAccountName: nix-cache-publisher
+  # The PaC App token expires an hour after the run starts; the Go and GitHub
+  # release steps must finish before then.
+  timeouts:
+    pipeline: 55m
+  pipelineSpec:
+    params:
+      - name: revision
+        type: string
+      - name: release_tag
+        type: string
+    workspaces:
+      - name: source
+      - name: git-auth
+      - name: nix-cache-export
+      - name: artifacts
+      - name: npm-token
+      - name: ci-scripts
+    tasks:
+      # Full commit history (no blobs) so the build can prove the tag is on main.
+      - name: clone
+        timeout: 10m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v1}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: '$(params.revision)'}
+          - {name: expectedCommitSha, value: '$(params.revision)'}
+          - {name: depth, value: '0'}
+          - name: additionalRefspecs
+            value: |
+              +refs/heads/main:refs/remotes/origin/main
+              +refs/tags/$(params.release_tag):refs/tags/$(params.release_tag)
+        workspaces:
+          - {name: output, workspace: source}
+          - {name: basic-auth, workspace: git-auth}
+      # Trusted scripts: main's scripts/ci, out of the build's reach.
+      - name: clone-ci-scripts
+        timeout: 5m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v1}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: refs/heads/main}
+          - {name: sparseCheckoutPatterns, value: /scripts/ci/}
+          - {name: outputOwnerUid, value: '1000'}
+          - {name: outputOwnerGid, value: '1000'}
+        workspaces:
+          - {name: output, workspace: ci-scripts}
+          - {name: basic-auth, workspace: git-auth}
+      # A tag alone is not trusted: only a vX.Y.Z tag on a commit already on
+      # main publishes.
+      - name: verify-tag
+        timeout: 5m
+        runAfter: [clone, clone-ci-scripts]
+        params:
+          - {name: tag, value: '$(params.release_tag)'}
+          - {name: revision, value: '$(params.revision)'}
+        workspaces:
+          - {name: source, workspace: source}
+          - {name: ci-scripts, workspace: ci-scripts}
+        taskSpec:
+          params:
+            - name: tag
+              type: string
+            - name: revision
+              type: string
+          workspaces:
+            - name: source
+              readOnly: true
+            - name: ci-scripts
+              readOnly: true
+          steps:
+            - name: verify
+              image: docker.io/nixos/nix:2.34.0@sha256:b9c9611c8530fa8049a1215b20638536e1e71dcaf85212e47845112caf3adeea
+              workingDir: $(workspaces.source.path)
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 100m, memory: 128Mi}
+                limits: {cpu: 500m, memory: 512Mi}
+              env:
+                - {name: TAG, value: $(params.tag)}
+                - {name: REVISION, value: $(params.revision)}
+                - {name: CI_SCRIPTS, value: $(workspaces.ci-scripts.path)/scripts/ci}
+                - {name: HOME, value: /tmp}
+                - {name: GIT_CONFIG_COUNT, value: '1'}
+                - {name: GIT_CONFIG_KEY_0, value: safe.directory}
+                - {name: GIT_CONFIG_VALUE_0, value: '*'}
+              script: |
+                #!/usr/bin/env bash
+                set -euo pipefail
+                "$CI_SCRIPTS/check-release-tag.sh" "$TAG" "$REVISION"
+      - name: build
+        timeout: 40m
+        runAfter: [verify-tag]
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-v1}
+            - {name: namespace, value: tekton-buildkit}
+        params:
+          - name: SCRIPT
+            value: |
+              git config --global --add safe.directory '*'
+              nix develop --command scripts/ci/release-build.sh '$(params.release_tag)' "$CI_ARTIFACTS_PATH"
+        workspaces:
+          - {name: source, workspace: source}
+          - {name: nix-cache-export, workspace: nix-cache-export}
+          - {name: artifacts, workspace: artifacts}
+      - name: push-go-modules
+        timeout: 10m
+        runAfter: [build]
+        params:
+          - {name: tag, value: '$(params.release_tag)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: git-auth, workspace: git-auth}
+          - {name: ci-scripts, workspace: ci-scripts}
+        taskSpec:
+          params:
+            - name: tag
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: git-auth
+              readOnly: true
+            - name: ci-scripts
+              readOnly: true
+          steps:
+            - name: push
+              image: docker.io/nixos/nix:2.34.0@sha256:b9c9611c8530fa8049a1215b20638536e1e71dcaf85212e47845112caf3adeea
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 500m, memory: 512Mi}
+                limits: {cpu: '2', memory: 2Gi}
+              env:
+                - {name: TAG, value: $(params.tag)}
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: GIT_CREDENTIALS, value: $(workspaces.git-auth.path)/.git-credentials}
+                - {name: CI_SCRIPTS, value: $(workspaces.ci-scripts.path)/scripts/ci}
+                - {name: HOME, value: /tmp}
+              script: |
+                #!/usr/bin/env bash
+                set -euo pipefail
+                "$CI_SCRIPTS/push-go-modules.sh" "$TAG" "$ARTIFACTS"
+      - name: publish-npm
+        timeout: 10m
+        runAfter: [push-go-modules]
+        params:
+          - {name: tag, value: '$(params.release_tag)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: npm-token, workspace: npm-token}
+          - {name: ci-scripts, workspace: ci-scripts}
+        taskSpec:
+          params:
+            - name: tag
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: npm-token
+              readOnly: true
+            - name: ci-scripts
+              readOnly: true
+          steps:
+            - name: publish
+              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 200m, memory: 256Mi}
+                limits: {cpu: '1', memory: 1Gi}
+              env:
+                - {name: TAG, value: $(params.tag)}
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: HOME, value: /tmp}
+                - {name: npm_config_cache, value: /tmp/npm-cache}
+                - {name: NPM_TOKEN_FILE, value: $(workspaces.npm-token.path)/token}
+                - {name: CI_SCRIPTS, value: $(workspaces.ci-scripts.path)/scripts/ci}
+              script: |
+                #!/bin/sh
+                set -eu
+                node "$CI_SCRIPTS/publish-npm.mjs" "$TAG" "$ARTIFACTS"
+      - name: attach-npm-package
+        timeout: 5m
+        runAfter: [publish-npm]
+        params:
+          - {name: tag, value: '$(params.release_tag)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: git-auth, workspace: git-auth}
+          - {name: ci-scripts, workspace: ci-scripts}
+        taskSpec:
+          params:
+            - name: tag
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: git-auth
+              readOnly: true
+            - name: ci-scripts
+              readOnly: true
+          steps:
+            - name: attach
+              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 100m, memory: 128Mi}
+                limits: {cpu: 500m, memory: 512Mi}
+              env:
+                - {name: TAG, value: $(params.tag)}
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: TOKEN_FILE, value: $(workspaces.git-auth.path)/git-provider-token}
+                - {name: CI_SCRIPTS, value: $(workspaces.ci-scripts.path)/scripts/ci}
+              script: |
+                #!/bin/sh
+                set -eu
+                node "$CI_SCRIPTS/attach-release-asset.mjs" "$TAG" "$ARTIFACTS"
+    # Publish the Nix task's cache export to the shared Nix cache.
+    finally:
+      - name: publish-cache
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-cache-publish-v1}
+            - {name: namespace, value: tekton-pipelines}
+        workspaces:
+          - {name: nix-cache-export, workspace: nix-cache-export}
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 4Gi
+    - name: git-auth
+      secret:
+        secretName: '{{ git_auth_secret }}'
+    # The Nix task's cache export (store paths the Nix cache lacks, written
+    # only on push and scheduled runs) for publish-cache. Each Nix task keeps
+    # its own store.
+    - name: nix-cache-export
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 10Gi
+    # Data only (tarball, Git bundle, tag list), handed from build to publish.
+    - name: artifacts
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 1Gi
+    - name: npm-token
+      secret:
+        secretName: ohip-sdk-npm-token
+    # main's scripts/ci, for verify-tag and the credential-holding tasks.
+    - name: ci-scripts
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 1Gi

@@ -1,0 +1,222 @@
+# Daily, from the xlab-deployments nightly-cron-trigger via the PaC incoming
+# webhook: compare upstream.json with Oracle's latest hospitality-api-docs
+# release. A candidate that passes full validation is proposed as a pull request
+# on automation/oracle-<release>; one that fails opens an issue. The check runs
+# sandboxed with no credentials; only the publish task holds the App token, and
+# it runs only scripts/ci from its own checkout of main (ci-scripts), never the
+# candidate's workspace.
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: upstream-watch-
+  annotations:
+    pipelinesascode.tekton.dev/on-event: '[incoming]'
+    pipelinesascode.tekton.dev/on-target-branch: '[main]'
+    pipelinesascode.tekton.dev/target-namespace: tekton-buildkit
+    pipelinesascode.tekton.dev/max-keep-runs: '5'
+  labels:
+    app.kubernetes.io/part-of: ci
+    tekton.dev/pipeline: ohip-sdk-upstream-watch
+spec:
+  params:
+    - name: revision
+      value: '{{ revision }}'
+  taskRunTemplate:
+    serviceAccountName: default
+    podTemplate:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      nodeSelector:
+        storage.xlab.now/fast-local: 'true'
+  taskRunSpecs:
+    - pipelineTaskName: candidate
+      podTemplate:
+        hostUsers: false
+    - pipelineTaskName: publish-cache
+      serviceAccountName: nix-cache-publisher
+  timeouts:
+    pipeline: 55m
+  pipelineSpec:
+    params:
+      - name: revision
+        type: string
+    workspaces:
+      - name: source
+      - name: git-auth
+      - name: nix-cache-export
+      - name: artifacts
+      - name: ci-scripts
+    tasks:
+      - name: clone
+        timeout: 10m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v1}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: '$(params.revision)'}
+          - {name: expectedCommitSha, value: '$(params.revision)'}
+        workspaces:
+          - {name: output, workspace: source}
+          - {name: basic-auth, workspace: git-auth}
+      # The publish task's scripts, out of the candidate's reach.
+      - name: clone-ci-scripts
+        timeout: 5m
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: git-clone-v1}
+            - {name: namespace, value: tekton-pipelines}
+        params:
+          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: revision, value: '$(params.revision)'}
+          - {name: expectedCommitSha, value: '$(params.revision)'}
+          - {name: sparseCheckoutPatterns, value: /scripts/ci/}
+          - {name: outputOwnerUid, value: '1000'}
+          - {name: outputOwnerGid, value: '1000'}
+        workspaces:
+          - {name: output, workspace: ci-scripts}
+          - {name: basic-auth, workspace: git-auth}
+      - name: candidate
+        timeout: 40m
+        runAfter: [clone]
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-v1}
+            - {name: namespace, value: tekton-buildkit}
+        params:
+          - name: SCRIPT
+            value: |
+              git config --global --add safe.directory '*'
+              nix develop --command scripts/ci/upstream-candidate.sh "$CI_ARTIFACTS_PATH"
+        workspaces:
+          - {name: source, workspace: source}
+          - {name: nix-cache-export, workspace: nix-cache-export}
+          - {name: artifacts, workspace: artifacts}
+      - name: publish
+        timeout: 10m
+        runAfter: [candidate, clone-ci-scripts]
+        params:
+          - {name: run, value: '$(context.pipelineRun.name)'}
+          - {name: revision, value: '$(params.revision)'}
+        workspaces:
+          - {name: artifacts, workspace: artifacts}
+          - {name: git-auth, workspace: git-auth}
+          - {name: ci-scripts, workspace: ci-scripts}
+        taskSpec:
+          params:
+            - name: run
+              type: string
+            - name: revision
+              type: string
+          workspaces:
+            - name: artifacts
+              readOnly: true
+            - name: git-auth
+              readOnly: true
+            - name: ci-scripts
+              readOnly: true
+          steps:
+            - name: push-branch
+              image: docker.io/nixos/nix:2.34.0@sha256:b9c9611c8530fa8049a1215b20638536e1e71dcaf85212e47845112caf3adeea
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 200m, memory: 256Mi}
+                limits: {cpu: '1', memory: 1Gi}
+              env:
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: GIT_CREDENTIALS, value: $(workspaces.git-auth.path)/.git-credentials}
+                - {name: REVISION, value: $(params.revision)}
+                - {name: CI_SCRIPTS, value: $(workspaces.ci-scripts.path)/scripts/ci}
+                - {name: HOME, value: /tmp}
+              script: |
+                #!/usr/bin/env bash
+                set -euo pipefail
+                "$CI_SCRIPTS/push-upstream-candidate.sh" "$ARTIFACTS" "$REVISION"
+            - name: open-pr-or-issue
+              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop: [ALL]
+                seccompProfile:
+                  type: RuntimeDefault
+              computeResources:
+                requests: {cpu: 100m, memory: 128Mi}
+                limits: {cpu: 500m, memory: 512Mi}
+              env:
+                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
+                - {name: TOKEN_FILE, value: $(workspaces.git-auth.path)/git-provider-token}
+                - {name: RUN_URL, value: 'https://tekton.xlab.now/#/namespaces/tekton-buildkit/pipelineruns/$(params.run)'}
+                - {name: CI_SCRIPTS, value: $(workspaces.ci-scripts.path)/scripts/ci}
+              script: |
+                #!/bin/sh
+                set -eu
+                node "$CI_SCRIPTS/report-upstream-candidate.mjs" "$ARTIFACTS"
+    # Publish the Nix task's cache export to the shared Nix cache.
+    finally:
+      - name: publish-cache
+        taskRef:
+          resolver: cluster
+          params:
+            - {name: kind, value: task}
+            - {name: name, value: nix-cache-publish-v1}
+            - {name: namespace, value: tekton-pipelines}
+        workspaces:
+          - {name: nix-cache-export, workspace: nix-cache-export}
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 4Gi
+    - name: git-auth
+      secret:
+        secretName: '{{ git_auth_secret }}'
+    # The Nix task's cache export (store paths the Nix cache lacks, written
+    # only on push and scheduled runs) for publish-cache. Each Nix task keeps
+    # its own store.
+    - name: nix-cache-export
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 10Gi
+    - name: artifacts
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 1Gi
+    # scripts/ci at the checked main commit, for the publish task.
+    - name: ci-scripts
+      volumeClaimTemplate:
+        spec:
+          accessModes: [ReadWriteOnce]
+          storageClassName: fast-local
+          resources:
+            requests:
+              storage: 1Gi

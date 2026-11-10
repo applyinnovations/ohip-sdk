@@ -60,11 +60,11 @@ result. A source or patch mismatch stops the build.
   matches `package.json`.
 - The publish job regenerates everything from pinned inputs, validates it,
   atomically pushes the generated Go branch and all module tags, then publishes
-  the npm tarball using OIDC trusted publishing and provenance.
+  the npm tarball with a package-scoped npm token.
 - A retry never overwrites release state. Existing Go refs are accepted only
   when their Git tree exactly matches a fresh build; an existing npm version is
   skipped.
-- A weekly job checks Oracle's latest release. It opens a PR only when existing
+- A daily job checks Oracle's latest release. It opens a PR only when existing
   patches and the full validation suite pass. Otherwise it opens or updates an
   issue with the failed run, making upstream drift visible without merging an
   unsafe generated update.

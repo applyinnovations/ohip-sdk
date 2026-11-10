@@ -1,19 +1,12 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: /
+    directories:
+      - /
+      - /scripts/ci/release-please
     schedule:
       interval: monthly
     groups:
       build-tooling:
-        patterns:
-          - '*'
-
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: monthly
-    groups:
-      actions:
         patterns:
           - '*'
