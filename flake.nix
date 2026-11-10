@@ -8,12 +8,13 @@
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in {
-      # Node.js 22, Java 21 for OpenAPI Generator, Go 1.25 for the Go modules.
+      # Node.js 22, Java 21 for OpenAPI Generator, Go 1.25 for the Go modules,
+      # ShellCheck for scripts/ci.
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in {
           default = pkgs.mkShell {
-            packages = with pkgs; [ nodejs_22 jdk21_headless go_1_25 git jq ];
+            packages = with pkgs; [ nodejs_22 jdk21_headless go_1_25 git jq shellcheck ];
             GOTOOLCHAIN = "local";
           };
         });

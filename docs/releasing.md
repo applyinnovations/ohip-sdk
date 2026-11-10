@@ -35,6 +35,11 @@ the GitHub release and its `vX.Y.Z` tag, and the tag push starts
 - generated branch `generated/vX.Y.Z`;
 - one immutable `go/<api>/vX.Y.Z` tag per Go module.
 
+The pipelines only wire Tasks and call `scripts/ci/`; `npm run test:ci` tests
+those scripts. A step that holds a credential runs `scripts/ci/` from its own
+checkout (main's for a release, the pushed commit for Release Please and the
+upstream watch), never from the workspace a build wrote to.
+
 If publishing is interrupted, re-run the failed `tekton-xlab / release-`
 check on the tag's commit. Each step verifies existing Git trees, npm versions
 and release assets rather than replacing them.
