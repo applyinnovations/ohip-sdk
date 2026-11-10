@@ -68,7 +68,8 @@
     "generate": "npm run upstream:prepare && node scripts/generate.mjs",
     "compile": "tsc -p tsconfig.typescript-fetch.json",
     "prepare:release": "npm run clean && npm run specs:validate && npm run generate && npm run compile",
-    "test": "node --test test/typescript/*.test.cjs",
+    "test": "node --test test/typescript/*.test.cjs test/ci/*.test.mjs",
+    "test:ci": "node --test test/ci/*.test.mjs",
     "test:go": "node scripts/test-go.mjs",
     "pack:check": "node scripts/check-package.mjs",
     "validate": "npm run prepare:release && npm test && npm run test:go && npm run pack:check"

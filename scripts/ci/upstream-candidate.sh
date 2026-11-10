@@ -12,14 +12,7 @@ set -euo pipefail
 out=$1
 cd "$(dirname "$0")/../.."
 
-ref=$(node -e '
-  fetch("https://api.github.com/repos/oracle/hospitality-api-docs/releases/latest", {
-    headers: { accept: "application/vnd.github+json" },
-  })
-    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`GitHub API ${r.status}`))))
-    .then((release) => console.log(release.tag_name))
-    .catch((error) => { console.error(error.message); process.exit(1); });
-')
+ref=$(node scripts/ci/oracle-latest-release.mjs)
 [[ "$ref" =~ ^v?[0-9A-Za-z][0-9A-Za-z._-]*$ ]] || { echo "unexpected Oracle tag '$ref'" >&2; exit 2; }
 release=${ref#v}
 printf '%s\n' "$ref" > "$out/ref"

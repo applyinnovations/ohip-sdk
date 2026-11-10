@@ -2,7 +2,9 @@
 # creates the GitHub release and v* tag for a merged release PR, then opens or
 # updates the next release PR. The tag push starts .tekton/release.yaml.
 # Only the release-please step holds the Pipelines-as-Code App token; it runs
-# the CLI pinned by scripts/ci/release-please/package-lock.json, never the SDK.
+# scripts/ci/release-please/release-please.sh from a sparse checkout of the
+# pushed main commit, with the CLI pinned by its package-lock.json, never the
+# SDK.
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
@@ -72,7 +74,6 @@ spec:
           steps:
             - name: release-please
               image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
-              workingDir: $(workspaces.source.path)/scripts/ci/release-please
               securityContext:
                 runAsNonRoot: true
                 runAsUser: 1000
@@ -91,16 +92,7 @@ spec:
               script: |
                 #!/bin/sh
                 set -eu
-                npm ci --ignore-scripts --no-audit --no-fund --cache /tmp/npm-cache
-                token="$(cat "${TOKEN_FILE}")"
-                for command in github-release release-pr; do
-                  ./node_modules/.bin/release-please "${command}" \
-                    --token="${token}" \
-                    --repo-url=applyinnovations/ohip-sdk \
-                    --target-branch=main \
-                    --config-file=release-please-config.json \
-                    --manifest-file=.release-please-manifest.json
-                done
+                "$(workspaces.source.path)/scripts/ci/release-please/release-please.sh"
   workspaces:
     - name: source
       volumeClaimTemplate:

@@ -3,6 +3,7 @@
 # and pack both SDKs from a clean tree. Run it inside `nix develop`.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
+shellcheck scripts/ci/*.sh scripts/ci/release-please/*.sh
 scripts/ci/fetch-oracle-specs.sh
 npm ci --no-audit --no-fund
 status=0
