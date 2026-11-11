@@ -41,7 +41,9 @@ export function publish({
   log = console.log,
 }) {
   const version = tag.slice(1);
-  const tarball = path.join(artifacts, tarballName(tag));
+  // Absolute: npm reads a relative `dir/file.tgz` as a GitHub `owner/repo`
+  // shorthand and tries to clone it.
+  const tarball = path.resolve(artifacts, tarballName(tag));
   const listed = run('tar', ['-xzOf', tarball, 'package/package.json']);
   if (listed.status !== 0)
     throw new Error(
