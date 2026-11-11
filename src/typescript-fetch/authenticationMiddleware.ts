@@ -166,7 +166,7 @@ export class OhipCredentialsProvider {
         console.error(e);
         // recursively renew
         if (retryCount < MAX_RETRIES) {
-          await this.renewCredentials({ retryCount: retryCount + 1 });
+          await this.renewCredentials({ retryCount: retryCount + 1, start });
         } else throw Error(`OHIP_AUTH_ERR: maximum retry attempts exceeded`);
       }
     } finally {
