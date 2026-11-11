@@ -54,7 +54,11 @@ jobs:
       - uses: cachix/install-nix-action@91f6a0f59e94dfb2cfed0f4000f36a68ead1d20c # v31.11.4
       - name: Build
         working-directory: source
-        run: nix develop --command scripts/ci/release-build.sh "$TAG" "$RUNNER_TEMP/artifacts"
+        # Older tags' release-build.sh expects the directory to exist (Tekton
+        # workspaces always do), so create it here.
+        run: |
+          mkdir -p "$RUNNER_TEMP/artifacts"
+          nix develop --command scripts/ci/release-build.sh "$TAG" "$RUNNER_TEMP/artifacts"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: npm-package
