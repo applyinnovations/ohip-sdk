@@ -49,7 +49,9 @@ exit "\${PUBLISH_STATUS:-0}"
   );
   chmodSync(path.join(bin, 'npm'), 0o755);
   const publish = (env = {}) =>
-    run('node', [path.join(SCRIPTS, 'publish-npm.mjs'), 'v1.2.3', artifacts], {
+    // A relative artifacts directory, as the workflow passes it.
+    run('node', [path.join(SCRIPTS, 'publish-npm.mjs'), 'v1.2.3', 'artifacts'], {
+      cwd: dir,
       env: { PATH: `${bin}:${process.env.PATH}`, ...env },
     });
   return { publish, npmLog: () => readFileSync(log, 'utf8') };
@@ -63,7 +65,7 @@ test('publish-npm publishes the tarball with provenance through OIDC', (t) => {
   assert.match(log, /^view @applyinnovations\/ohip-sdk@1.2.3 version$/m);
   assert.match(
     log,
-    /^publish \S*applyinnovations-ohip-sdk-1.2.3.tgz --access public --provenance --ignore-scripts$/m,
+    /^publish \/\S*\/artifacts\/applyinnovations-ohip-sdk-1.2.3.tgz --access public --provenance --ignore-scripts$/m,
   );
   assert.match(log, /^oidc=https:\/\/token.actions.example.invalid$/m);
   assert.match(result.stdout, /Published @applyinnovations\/ohip-sdk@1.2.3/);
