@@ -14,6 +14,7 @@ cd "$(dirname "$0")/../.."
 
 RELEASE_TAG="$tag" node scripts/assert-release-version.mjs
 scripts/ci/validate.sh
+mkdir -p "$out"
 npm pack --ignore-scripts --pack-destination "$out"
 
 version=${tag#v}
