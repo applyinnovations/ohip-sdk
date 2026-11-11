@@ -7,3 +7,7 @@ scripting standard ([Repository pipelines](https://github.com/applyinnovations/d
 and call scripts in this repository, which hold the logic, run the same
 locally and have tests (Bash for glue, Python for real logic). No inline logic
 in YAML.
+
+The one exception is `.github/workflows/npm-publish.yml`, which only publishes
+the npm package: npm trusted publishing supports GitHub-hosted runners only.
+Keep it to that, and keep its logic in `scripts/ci/`.

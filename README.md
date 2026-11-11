@@ -111,9 +111,10 @@ valid clients from Oracle 26.2. Their resulting file hashes are recorded in
   types, import-path changes, or other breaking changes.
 - The Oracle release number is provenance, not the SDK package version.
 
-Release automation publishes the TypeScript package through npm trusted
-publishing, creates an immutable GitHub release, and emits a correctly prefixed
-tag for every generated Go module. See [MIGRATION_V3.md](./MIGRATION_V3.md) for
+Release automation publishes the TypeScript package from GitHub Actions
+through npm trusted publishing (with provenance, after the owner approves the
+`release` environment), creates an immutable GitHub release on Tekton, and
+emits a correctly prefixed tag for every generated Go module. See [MIGRATION_V3.md](./MIGRATION_V3.md) for
 the 3.0 migration, [MIGRATION.md](./MIGRATION.md) for the historical 2.0
 migration, [the packaging design](./docs/packaging.md) for the decisions behind
 it, and [the release runbook](./docs/releasing.md) for initial setup.

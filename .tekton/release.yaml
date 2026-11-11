@@ -1,12 +1,15 @@
-# Publishes a release when its v* tag is pushed (Release Please creates it).
+# Releases a v* tag (Release Please creates it): the Go modules and the GitHub
+# release asset. npm is published by the GitHub Actions workflow
+# .github/workflows/npm-publish.yml through npm trusted publishing, which only
+# supports GitHub-hosted runners; see docs/releasing.md.
 # The build runs sandboxed with no credentials and hands the publish tasks only
 # data: the npm tarball and a Git bundle of the generated Go modules. Each
 # publish task holds one credential and runs only scripts/ci from its own
 # checkout of main (ci-scripts), never the build's workspace. Before any of
 # the tag's code runs, verify-tag checks it with main's check-release-tag.sh.
 # Every step is idempotent: re-run the failed check on the tag's commit to
-# retry. Existing Go refs are accepted only when they match this build; a
-# published npm version is skipped.
+# retry. Existing Go refs are accepted only when they match this build; an
+# attached release asset is left alone.
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
@@ -56,7 +59,6 @@ spec:
       - name: git-auth
       - name: nix-cache-export
       - name: artifacts
-      - name: npm-token
       - name: ci-scripts
     tasks:
       # Full commit history (no blobs) so the build can prove the tag is on main.
@@ -205,55 +207,9 @@ spec:
                 #!/usr/bin/env bash
                 set -euo pipefail
                 "$CI_SCRIPTS/push-go-modules.sh" "$TAG" "$ARTIFACTS"
-      - name: publish-npm
-        timeout: 10m
-        runAfter: [push-go-modules]
-        params:
-          - {name: tag, value: '$(params.release_tag)'}
-        workspaces:
-          - {name: artifacts, workspace: artifacts}
-          - {name: npm-token, workspace: npm-token}
-          - {name: ci-scripts, workspace: ci-scripts}
-        taskSpec:
-          params:
-            - name: tag
-              type: string
-          workspaces:
-            - name: artifacts
-              readOnly: true
-            - name: npm-token
-              readOnly: true
-            - name: ci-scripts
-              readOnly: true
-          steps:
-            - name: publish
-              image: docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
-              securityContext:
-                runAsNonRoot: true
-                runAsUser: 1000
-                runAsGroup: 1000
-                allowPrivilegeEscalation: false
-                capabilities:
-                  drop: [ALL]
-                seccompProfile:
-                  type: RuntimeDefault
-              computeResources:
-                requests: {cpu: 200m, memory: 256Mi}
-                limits: {cpu: '1', memory: 1Gi}
-              env:
-                - {name: TAG, value: $(params.tag)}
-                - {name: ARTIFACTS, value: $(workspaces.artifacts.path)}
-                - {name: HOME, value: /tmp}
-                - {name: npm_config_cache, value: /tmp/npm-cache}
-                - {name: NPM_TOKEN_FILE, value: $(workspaces.npm-token.path)/token}
-                - {name: CI_SCRIPTS, value: $(workspaces.ci-scripts.path)/scripts/ci}
-              script: |
-                #!/bin/sh
-                set -eu
-                node "$CI_SCRIPTS/publish-npm.mjs" "$TAG" "$ARTIFACTS"
       - name: attach-npm-package
         timeout: 5m
-        runAfter: [publish-npm]
+        runAfter: [push-go-modules]
         params:
           - {name: tag, value: '$(params.release_tag)'}
         workspaces:
@@ -338,9 +294,6 @@ spec:
           resources:
             requests:
               storage: 1Gi
-    - name: npm-token
-      secret:
-        secretName: ohip-sdk-npm-token
     # main's scripts/ci, for verify-tag and the credential-holding tasks.
     - name: ci-scripts
       volumeClaimTemplate:
