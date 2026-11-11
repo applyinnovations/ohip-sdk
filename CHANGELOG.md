@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/applyinnovations/ohip-sdk/compare/v3.0.1...v3.0.2) (2026-11-11)
+
+
+### Bug Fixes
+
+* preserve authentication retry budget across retries ([#42](https://github.com/applyinnovations/ohip-sdk/issues/42)) ([b1353db](https://github.com/applyinnovations/ohip-sdk/commit/b1353db92ff150b3d4237a8bde73e2efb09d5493))
+
 ## [3.0.1](https://github.com/applyinnovations/ohip-sdk/compare/v3.0.0...v3.0.1) (2026-09-30)
 
 
