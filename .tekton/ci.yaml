@@ -30,6 +30,16 @@ spec:
     - pipelineTaskName: validate
       podTemplate:
         hostUsers: false
+      # Peak 14 days to 22 Nov 2026: RSS 3.8 GiB, working set 4.0 GiB.
+      stepSpecs:
+        - name: run
+          computeResources:
+            requests:
+              cpu: '1'
+              memory: 5Gi
+            limits:
+              cpu: '12'
+              memory: 24Gi
     - pipelineTaskName: publish-cache
       serviceAccountName: nix-cache-publisher
   timeouts:
