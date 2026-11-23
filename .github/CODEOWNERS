@@ -1,0 +1,4 @@
+# Interim review gate (2026-11-23): every change to the default branch needs
+# the owner's review until the approvals App (Paperclip APP-2) takes over
+# non-sensitive PRs. The owner is the only code owner for now.
+* @alexander-applyinnovations
