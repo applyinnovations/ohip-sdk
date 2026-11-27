@@ -72,7 +72,7 @@
     "test:ci": "node --test test/ci/*.test.mjs",
     "test:go": "node scripts/test-go.mjs",
     "pack:check": "node scripts/check-package.mjs",
-    "validate": "npm run prepare:release && npm test && npm run test:go && npm run pack:check"
+    "validate": "node scripts/validate.mjs"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "2.39.1",

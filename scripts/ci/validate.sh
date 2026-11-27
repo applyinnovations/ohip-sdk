@@ -3,9 +3,15 @@
 # and pack both SDKs from a clean tree. Run it inside `nix develop`.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
-shellcheck scripts/ci/*.sh scripts/ci/release-please/*.sh
-scripts/ci/fetch-oracle-specs.sh
-npm ci --no-audit --no-fund
+shellcheck scripts/ci/*.sh scripts/ci/release-please/*.sh &
+pid_shellcheck=$!
+scripts/ci/fetch-oracle-specs.sh &
+pid_fetch=$!
+npm ci --no-audit --no-fund &
+pid_npm=$!
+wait "$pid_shellcheck"
+wait "$pid_fetch"
+wait "$pid_npm"
 status=0
 npm run validate || status=$?
 if [ "$status" -ne 0 ] && [ -f build.log ]; then
