@@ -38,7 +38,6 @@ spec:
               cpu: '1'
               memory: 5Gi
             limits:
-              cpu: '12'
               memory: 24Gi
     - pipelineTaskName: publish-cache
       serviceAccountName: nix-cache-publisher
@@ -49,28 +48,11 @@ spec:
       - name: revision
         type: string
     workspaces:
-      - name: source
       - name: git-auth
       - name: nix-cache-export
     tasks:
-      - name: clone
-        timeout: 10m
-        taskRef:
-          resolver: cluster
-          params:
-            - {name: kind, value: task}
-            - {name: name, value: git-clone-v1}
-            - {name: namespace, value: tekton-pipelines}
-        params:
-          - {name: url, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
-          - {name: revision, value: '$(params.revision)'}
-          - {name: expectedCommitSha, value: '$(params.revision)'}
-        workspaces:
-          - {name: output, workspace: source}
-          - {name: basic-auth, workspace: git-auth}
       - name: validate
         timeout: 45m
-        runAfter: [clone]
         taskRef:
           resolver: cluster
           params:
@@ -78,12 +60,14 @@ spec:
             - {name: name, value: nix-v1}
             - {name: namespace, value: tekton-buildkit}
         params:
+          - {name: URL, value: 'https://github.com/applyinnovations/ohip-sdk.git'}
+          - {name: REVISION, value: '$(params.revision)'}
           - name: SCRIPT
             value: |
               git config --global --add safe.directory '*'
               nix develop --command scripts/ci/validate.sh
         workspaces:
-          - {name: source, workspace: source}
+          - {name: basic-auth, workspace: git-auth}
           - {name: nix-cache-export, workspace: nix-cache-export}
     # Push runs publish the Nix task's cache export to the shared Nix cache.
     finally:
@@ -106,14 +90,6 @@ spec:
         workspaces:
           - {name: nix-cache-export, workspace: nix-cache-export}
   workspaces:
-    - name: source
-      volumeClaimTemplate:
-        spec:
-          accessModes: [ReadWriteOnce]
-          storageClassName: scratch-local
-          resources:
-            requests:
-              storage: 4Gi
     - name: git-auth
       secret:
         secretName: '{{ git_auth_secret }}'

@@ -14,8 +14,10 @@ const moduleMajorVersion = generatorConfig['generator-cli'].generators.go
 await mkdir(destinationDir, { recursive: true });
 await cp(source, path.join(destinationDir, 'authentication_middleware.go'));
 
-for (const entry of await readdir(path.join(root, 'go'), { withFileTypes: true })) {
-  if (!entry.isDirectory()) continue;
+const entries = (await readdir(path.join(root, 'go'), { withFileTypes: true }))
+  .filter((entry) => entry.isDirectory());
+
+await Promise.all(entries.map(async (entry) => {
   const moduleDir = path.join(root, 'go', entry.name);
   await Promise.all([
     rm(path.join(moduleDir, '.openapi-generator'), { force: true, recursive: true }),
@@ -39,7 +41,7 @@ for (const entry of await readdir(path.join(root, 'go'), { withFileTypes: true }
   try {
     exceptionDetail = await readFile(exceptionDetailPath, 'utf8');
   } catch (error) {
-    if (error.code === 'ENOENT') continue;
+    if (error.code === 'ENOENT') return;
     throw error;
   }
 
@@ -112,6 +114,6 @@ ${marshalFunction}`,
     );
   }
   await writeFile(exceptionDetailPath, exceptionDetail);
-}
+}));
 
 console.log('Applied custom Go OAuth middleware and Oracle error decoding.');

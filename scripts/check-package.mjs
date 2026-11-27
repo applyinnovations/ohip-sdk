@@ -55,8 +55,12 @@ for (const required of [
 }
 
 let unpackedSize = 0;
-for (const relativePath of paths) {
-  unpackedSize += (await stat(path.join(root, relativePath))).size;
+const statBatchSize = 128;
+for (let i = 0; i < paths.length; i += statBatchSize) {
+  const sizes = await Promise.all(
+    paths.slice(i, i + statBatchSize).map(async (relativePath) => (await stat(path.join(root, relativePath))).size),
+  );
+  for (const size of sizes) unpackedSize += size;
 }
 if (unpackedSize > 120_000_000) {
   throw new Error(`Unpacked npm output is too large: ${unpackedSize} bytes`);
